@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "cd0JobkLJmzkqYOGN/Cqs77MoFWZTUYEtDjCbf7fW/0=",
+  "Source": "ClientWebSiteApi",
+  "BasePath": "_content/ClientWebSiteApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
