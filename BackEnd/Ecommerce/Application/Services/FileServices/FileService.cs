@@ -6,41 +6,54 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services.FileServices
 {
-    public class FileService:IFileService
+    public class FileService : IFileService
     {
         private readonly IWebHostEnvironment _environment;
+        private readonly ILogger<FileService> _logger;
 
 
-        public FileService(IWebHostEnvironment environment)
+        public FileService(IWebHostEnvironment environment, ILogger<FileService> logger)
         {
             _environment = environment;
+            _logger = logger;
         }
-        public async Task<string> SaveFileAsync(IFormFile file, string folder)
+        public async Task<string> SaveFileAsync(IFormFile file, string folderPath)
         {
-            if (file == null || file.Length == 0)
-                throw new ArgumentException("File is empty");
-
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
-            var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
-
-            if (!allowedExtensions.Contains(fileExtension))
-                throw new ArgumentException("File type not allowed");
-
-            var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", folder);
-            Directory.CreateDirectory(uploadsFolder);
-
-            var fileName = $"{Guid.NewGuid()}{fileExtension}";
-            var filePath = Path.Combine(uploadsFolder, fileName);
-
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            try
             {
-                await file.CopyToAsync(fileStream);
-            }
+                if (file == null || file.Length == 0 || string.IsNullOrWhiteSpace(folderPath))
+                {
+                    throw new ArgumentException("File is empty or path is invalid");
+                }
 
-            return $"/uploads/{folder}/{fileName}";
+                var rootPath = _environment.WebRootPath ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                var uploadPath = Path.Combine(rootPath, folderPath);
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+                var filePath = Path.Combine(uploadPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                return Path.Combine(folderPath, fileName).Replace("\\", "/");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error saving file");
+                throw;
+            }
         }
 
 

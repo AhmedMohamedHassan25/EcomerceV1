@@ -98,8 +98,8 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
-MapsterConfig.configure();
 
+MapsterConfig.configure();
 
 var app = builder.Build();
 
@@ -117,6 +117,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+var webRootPath = app.Environment.WebRootPath ?? Path.Combine(app.Environment.ContentRootPath, "wwwroot");
+if (!Directory.Exists(webRootPath))
+{
+    Directory.CreateDirectory(webRootPath);
+}
 app.UseStaticFiles();
 
 app.UseCors("AllowAll");
