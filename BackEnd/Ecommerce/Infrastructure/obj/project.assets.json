@@ -6041,11 +6041,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projects\\Ecommerce\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\projects\\Ecommerce\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Elghoul\\.nuget\\packages\\",
-      "outputPath": "D:\\projects\\Ecommerce\\Infrastructure\\obj\\",
+      "outputPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6066,11 +6066,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\projects\\Ecommerce\\Application\\Application.csproj": {
-              "projectPath": "D:\\projects\\Ecommerce\\Application\\Application.csproj"
+            "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Application.csproj": {
+              "projectPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Application.csproj"
             },
-            "D:\\projects\\Ecommerce\\Context\\Context.csproj": {
-              "projectPath": "D:\\projects\\Ecommerce\\Context\\Context.csproj"
+            "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Context\\Context.csproj": {
+              "projectPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Context\\Context.csproj"
             }
           }
         }

@@ -10,7 +10,7 @@ using Models;
 
 namespace Application.Mapper
 {
-    public class Mapster
+    public class MapsterConfig
     {
         public static void configure()
         {
@@ -63,7 +63,7 @@ namespace Application.Mapper
 
             #region mapp ProductDto
             TypeAdapterConfig<Product, ProductDTO>.NewConfig()
-                .Map(dest => dest.Id, src => src.Id)
+                .Map(dest => dest.ProductId, src => src.Id)
                 .Map(dest => dest.Category, src => src.Category)
                 .Map(dest => dest.ProductCode, src => src.ProductCode)
                 .Map(dest => dest.Name, src => src.Name)

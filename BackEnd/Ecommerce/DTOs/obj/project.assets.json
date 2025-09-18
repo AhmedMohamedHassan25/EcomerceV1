@@ -1729,11 +1729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projects\\Ecommerce\\DTOs\\DTOs.csproj",
+      "projectUniqueName": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\DTOs.csproj",
       "projectName": "DTOs",
-      "projectPath": "D:\\projects\\Ecommerce\\DTOs\\DTOs.csproj",
+      "projectPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\DTOs.csproj",
       "packagesPath": "C:\\Users\\Elghoul\\.nuget\\packages\\",
-      "outputPath": "D:\\projects\\Ecommerce\\DTOs\\obj\\",
+      "outputPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

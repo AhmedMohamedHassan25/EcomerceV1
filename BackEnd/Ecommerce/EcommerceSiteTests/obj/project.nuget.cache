@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UXTfW2NneQs=",
+  "dgSpecHash": "kUttBLSK7wI=",
   "success": true,
-  "projectFilePath": "D:\\projects\\Ecommerce\\EcommerceSiteTests\\EcommerceSiteTests.csproj",
+  "projectFilePath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\EcommerceSiteTests\\EcommerceSiteTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Elghoul\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Elghoul\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

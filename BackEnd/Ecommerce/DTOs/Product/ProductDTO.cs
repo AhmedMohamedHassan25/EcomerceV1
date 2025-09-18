@@ -8,7 +8,7 @@ namespace DTOs.Product
 {
     public class ProductDTO
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
 
         public string Category { get; set; }
 

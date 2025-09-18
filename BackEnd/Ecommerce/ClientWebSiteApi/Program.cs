@@ -1,4 +1,5 @@
 using Application.Contract;
+using Application.Mapper;
 using Application.Services.AuthService;
 using Application.Services.FileServices;
 using Application.Services.ProductServices;
@@ -97,6 +98,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+MapsterConfig.configure();
 
 
 var app = builder.Build();

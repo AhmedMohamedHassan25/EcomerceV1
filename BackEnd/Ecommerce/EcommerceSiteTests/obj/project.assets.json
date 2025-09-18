@@ -9584,11 +9584,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projects\\Ecommerce\\EcommerceSiteTests\\EcommerceSiteTests.csproj",
+      "projectUniqueName": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\EcommerceSiteTests\\EcommerceSiteTests.csproj",
       "projectName": "EcommerceSiteTests",
-      "projectPath": "D:\\projects\\Ecommerce\\EcommerceSiteTests\\EcommerceSiteTests.csproj",
+      "projectPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\EcommerceSiteTests\\EcommerceSiteTests.csproj",
       "packagesPath": "C:\\Users\\Elghoul\\.nuget\\packages\\",
-      "outputPath": "D:\\projects\\Ecommerce\\EcommerceSiteTests\\obj\\",
+      "outputPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\EcommerceSiteTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9609,11 +9609,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\projects\\Ecommerce\\Context\\Context.csproj": {
-              "projectPath": "D:\\projects\\Ecommerce\\Context\\Context.csproj"
+            "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Context\\Context.csproj": {
+              "projectPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Context\\Context.csproj"
             },
-            "D:\\projects\\Ecommerce\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\projects\\Ecommerce\\Infrastructure\\Infrastructure.csproj"
+            "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

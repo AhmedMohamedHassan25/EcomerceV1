@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UqqN15qgiBM=",
+  "dgSpecHash": "noYeHdSWJkk=",
   "success": true,
-  "projectFilePath": "D:\\projects\\Ecommerce\\DTOs\\DTOs.csproj",
+  "projectFilePath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\DTOs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Elghoul\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.9\\microsoft.extensions.configuration.9.0.9.nupkg.sha512",
     "C:\\Users\\Elghoul\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.9\\microsoft.extensions.configuration.abstractions.9.0.9.nupkg.sha512",

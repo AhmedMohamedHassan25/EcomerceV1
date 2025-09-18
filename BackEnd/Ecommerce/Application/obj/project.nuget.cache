@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C+y+yMaQwDs=",
+  "dgSpecHash": "E4HhVkf55rY=",
   "success": true,
-  "projectFilePath": "D:\\projects\\Ecommerce\\Application\\Application.csproj",
+  "projectFilePath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Elghoul\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Elghoul\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
