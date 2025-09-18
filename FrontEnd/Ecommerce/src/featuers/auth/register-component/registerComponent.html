@@ -1,0 +1,146 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-header">
+      <h2>Create Account</h2>
+      <p>Please fill in your details to create an account</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <!-- Success Message -->
+      <div *ngIf="successMessage" class="success-message" role="alert">
+        {{ successMessage }}
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Username Field -->
+      <div class="form-field">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-input"
+          [class.error]="username?.invalid && username?.touched"
+          placeholder="Enter your username"
+          autocomplete="username"
+        />
+        <div
+          *ngIf="username?.invalid && username?.touched"
+          class="field-error"
+          role="alert"
+        >
+          {{ getFieldErrorMessage('username') }}
+        </div>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-field">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-input"
+          [class.error]="email?.invalid && email?.touched"
+          placeholder="Enter your email address"
+          autocomplete="email"
+        />
+        <div
+          *ngIf="email?.invalid && email?.touched"
+          class="field-error"
+          role="alert"
+        >
+          {{ getFieldErrorMessage('email') }}
+        </div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-field">
+        <label for="password">Password</label>
+        <div class="password-input-container">
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            id="password"
+            formControlName="password"
+            class="form-input"
+            [class.error]="password?.invalid && password?.touched"
+            placeholder="Enter your password"
+            autocomplete="new-password"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="togglePasswordVisibility()"
+            [attr.aria-label]="hidePassword ? 'Show password' : 'Hide password'"
+          >
+            <span class="password-toggle-icon">
+              {{ hidePassword ? '👁️' : '🙈' }}
+            </span>
+          </button>
+        </div>
+        <div
+          *ngIf="password?.invalid && password?.touched"
+          class="field-error"
+          role="alert"
+        >
+          {{ getFieldErrorMessage('password') }}
+        </div>
+      </div>
+
+      <!-- Confirm Password Field -->
+      <div class="form-field">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-input-container">
+          <input
+            [type]="hideConfirmPassword ? 'password' : 'text'"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            class="form-input"
+            [class.error]="(confirmPassword?.invalid && confirmPassword?.touched) || (registerForm.hasError('passwordMismatch') && confirmPassword?.touched)"
+            placeholder="Confirm your password"
+            autocomplete="new-password"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="toggleConfirmPasswordVisibility()"
+            [attr.aria-label]="hideConfirmPassword ? 'Show password' : 'Hide password'"
+          >
+            <span class="password-toggle-icon">
+              {{ hideConfirmPassword ? '👁️' : '🙈' }}
+            </span>
+          </button>
+        </div>
+        <div
+          *ngIf="(confirmPassword?.invalid && confirmPassword?.touched) || (registerForm.hasError('passwordMismatch') && confirmPassword?.touched)"
+          class="field-error"
+          role="alert"
+        >
+          {{ getFieldErrorMessage('confirmPassword') }}
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="register-button"
+        [disabled]="registerForm.invalid || isLoading"
+      >
+        <span *ngIf="isLoading" class="loading-spinner"></span>
+        <span>{{ isLoading ? 'Creating Account...' : 'Create Account' }}</span>
+      </button>
+    </form>
+
+    <div class="register-footer">
+      <p>Already have an account?
+        <button type="button" class="link-button" (click)="navigateToLogin()">
+          Sign in here
+        </button>
+      </p>
+    </div>
+  </div>
+</div>

@@ -113,7 +113,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "DTOs.SharedData.Result\u00601[[Handmade.DTOs.SharedDTOs.EntityPaginated\u00601[[DTOs.Product.ProductDTO, DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Handmade.DTOs.SharedDTOs.EntityPaginated\u00601[[DTOs.Product.ProductDTO, DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

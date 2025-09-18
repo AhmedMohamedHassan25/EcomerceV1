@@ -10,3 +10,16 @@ D:\projects\Ecommerce\DTOs\obj\Debug\net8.0\refint\DTOs.dll
 D:\projects\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.pdb
 D:\projects\Ecommerce\DTOs\obj\Debug\net8.0\ref\DTOs.dll
 D:\projects\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.csproj.AssemblyReference.cache
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\bin\Debug\net8.0\DTOs.deps.json
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\bin\Debug\net8.0\DTOs.dll
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\bin\Debug\net8.0\DTOs.pdb
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.csproj.AssemblyReference.cache
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfoInputs.cache
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfo.cs
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.csproj.CoreCompileInputs.cache
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.sourcelink.json
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.dll
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\refint\DTOs.dll
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\DTOs.pdb
+E:\NewMark\EcomerceV1\BackEnd\Ecommerce\DTOs\obj\Debug\net8.0\ref\DTOs.dll

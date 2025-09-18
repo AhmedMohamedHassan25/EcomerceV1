@@ -23,13 +23,13 @@ namespace ClientWebSiteApi.Controllers
             }
 
             [HttpGet]
-            public async Task<ActionResult<Result<EntityPaginated<ProductDTO>>>> GetProducts()
+            public async Task<ActionResult<EntityPaginated<ProductDTO>>> GetProducts()
             {
                 var products = await _productService.GetAllAsync();
-                return Ok(Result<EntityPaginated<ProductDTO>>.Success(products));
+                return Ok(products); 
             }
 
-            [HttpGet("{id}")]
+        [HttpGet("{id}")]
             public async Task<ActionResult<Result<ProductDTO>>> GetProduct(int id)
             {
                 var product = await _productService.GetByIdAsync(id);

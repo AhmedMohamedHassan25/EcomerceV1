@@ -1,0 +1,442 @@
+<div class="product-list-container">
+  <!-- Header -->
+  <header class="product-header">
+    <div class="header-content">
+      <h1>Products</h1>
+      <div class="user-info">
+        <span>Welcome, {{ currentUser?.username }}</span>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Bar -->
+ <div class="search-container">
+  <div class="create-btn-wrapper">
+    <button class="btn-create" (click)="openCreateModal()">
+      Create
+    </button>
+  </div>
+
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by category..."
+      [(ngModel)]="searchCategory"
+      (input)="onSearchChange()"
+      aria-label="Search products by category"
+    />
+    <button class="search-clear-btn" *ngIf="searchCategory" (click)="clearSearch()">
+      ✕
+    </button>
+  </div>
+
+  <div class="search-results" *ngIf="searchCategory">
+    <span class="results-count">{{ filteredProducts.length }} products found</span>
+  </div>
+</div>
+
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Loading products...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage && !isLoading" class="error-container">
+    <p class="error-message">{{ errorMessage }}</p>
+    <button (click)="loadProducts()" class="retry-btn">Try Again</button>
+  </div>
+
+  <!-- Products Grid/List -->
+  <main *ngIf="!isLoading && !errorMessage" class="products-main">
+    <div
+      class="products-container"
+      [class.grid-view]="viewMode === 'grid'"
+      [class.list-view]="viewMode === 'list'"
+    >
+      <article
+        *ngFor="let product of paginatedProducts"
+        class="product-card"
+        [attr.aria-label]="'View details for ' + product.name"
+      >
+        <div class="product-image-container">
+          <img
+            [src]="getProductImageUrl(product)"
+            class="product-image"
+            (error)="onImageError($event)"
+            loading="lazy"
+          />
+          <div *ngIf="hasDiscount(product)" class="discount-badge">
+            -{{ product.discountRate }}%
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-code">{{ product.productCode }}</p>
+
+          <div class="product-pricing">
+            <span
+              *ngIf="hasDiscount(product)"
+              class="original-price"
+            >
+              {{ formatPrice(product.price) }}
+            </span>
+            <span class="current-price">
+              {{ formatPrice(getDiscountedPrice(product)) }}
+            </span>
+          </div>
+
+          <div class="product-meta" *ngIf="viewMode === 'list'">
+            <span class="minimum-quantity">
+              Min. Qty: {{ product.minimumQuantity }}
+            </span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="product-actions">
+            <button class="btn-primary btn-sm" (click)="openUpdateModal(product)">
+              Update
+            </button>
+            <button class="btn-secondary btn-sm" (click)="openDetailsModal(product)">
+              Details
+            </button>
+            <button class="btn-danger btn-sm" (click)="confirmDelete(product)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="paginatedProducts.length === 0" class="empty-state">
+      <div class="empty-icon">📦</div>
+      <h3>No products found</h3>
+      <p *ngIf="searchCategory">No products found matching "{{ searchCategory }}".</p>
+      <p *ngIf="!searchCategory">No products available at the moment.</p>
+      <button *ngIf="searchCategory" class="btn-secondary" (click)="clearSearch()">
+        Clear Search
+      </button>
+    </div>
+  </main>
+
+  <!-- Pagination -->
+  <nav
+    *ngIf="totalPages > 1 && !isLoading && !errorMessage"
+    class="pagination-nav"
+    aria-label="Product pagination"
+  >
+    <button
+      class="pagination-btn"
+      [disabled]="currentPage === 1"
+      (click)="onPageChange(currentPage - 1)"
+      aria-label="Go to previous page"
+    >
+      ‹ Previous
+    </button>
+
+    <button
+      *ngFor="let page of getPaginationArray()"
+      class="pagination-btn"
+      [class.active]="page === currentPage"
+      (click)="onPageChange(page)"
+      [attr.aria-label]="'Go to page ' + page"
+    >
+      {{ page }}
+    </button>
+
+    <button
+      class="pagination-btn"
+      [disabled]="currentPage === totalPages"
+      (click)="onPageChange(currentPage + 1)"
+      aria-label="Go to next page"
+    >
+      Next ›
+    </button>
+  </nav>
+</div>
+
+<!-- Create Product Modal -->
+
+<div class="modal-overlay" *ngIf="showCreateModal" (click)="closeUpdateModal()">
+  <div class="modal-content update-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Update Product</h2>
+      <button class="modal-close-btn" (click)="closeUpdateModal()">&times;</button>
+    </div>
+
+    <form class="update-form" (ngSubmit)="updateProduct()" #updateForm="ngForm">
+      <div class="form-group">
+        <label for="productName">Product Name *</label>
+        <input
+          type="text"
+          id="productName"
+          class="form-control"
+          [(ngModel)]="selectedProduct.name"
+          name="name"
+          required
+        />
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input
+          type="text"
+          id="category"
+          class="form-control"
+          [(ngModel)]="selectedProduct.category"
+          name="category"
+        />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="price">Price *</label>
+          <input
+            type="number"
+            id="price"
+            class="form-control"
+            [(ngModel)]="selectedProduct.price"
+            name="price"
+            min="0"
+            step="0.01"
+            required
+          />
+        </div>
+
+        <div class="form-group half">
+          <label for="discountRate">Discount Rate (%)</label>
+          <input
+            type="number"
+            id="discountRate"
+            class="form-control"
+            [(ngModel)]="selectedProduct.discountRate"
+            name="discountRate"
+            min="0"
+            max="100"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="minimumQuantity">Minimum Quantity *</label>
+        <input
+          type="number"
+          id="minimumQuantity"
+          class="form-control"
+          [(ngModel)]="selectedProduct.minimumQuantity"
+          name="minimumQuantity"
+          min="10"
+          required
+        />
+      </div>
+
+
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" (click)="closeUpdateModal()">
+          Cancel
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="!updateForm.valid || isUpdating">
+          <span *ngIf="isUpdating">Updating...</span>
+          <span *ngIf="!isUpdating">Update Product</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Update Product Modal -->
+<div class="modal-overlay" *ngIf="showUpdateModal" (click)="closeUpdateModal()">
+  <div class="modal-content update-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Update Product</h2>
+      <button class="modal-close-btn" (click)="closeUpdateModal()">&times;</button>
+    </div>
+
+    <form class="update-form" (ngSubmit)="updateProduct()" #updateForm="ngForm">
+      <div class="form-group">
+        <label for="productName">Product Name *</label>
+        <input
+          type="text"
+          id="productName"
+          class="form-control"
+          [(ngModel)]="selectedProduct.name"
+          name="name"
+          required
+        />
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input
+          type="text"
+          id="category"
+          class="form-control"
+          [(ngModel)]="selectedProduct.category"
+          name="category"
+        />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="price">Price *</label>
+          <input
+            type="number"
+            id="price"
+            class="form-control"
+            [(ngModel)]="selectedProduct.price"
+            name="price"
+            min="0"
+            step="0.01"
+            required
+          />
+        </div>
+
+        <div class="form-group half">
+          <label for="discountRate">Discount Rate (%)</label>
+          <input
+            type="number"
+            id="discountRate"
+            class="form-control"
+            [(ngModel)]="selectedProduct.discountRate"
+            name="discountRate"
+            min="0"
+            max="100"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="minimumQuantity">Minimum Quantity *</label>
+        <input
+          type="number"
+          id="minimumQuantity"
+          class="form-control"
+          [(ngModel)]="selectedProduct.minimumQuantity"
+          name="minimumQuantity"
+          min="10"
+          required
+        />
+      </div>
+
+
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" (click)="closeUpdateModal()">
+          Cancel
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="!updateForm.valid || isUpdating">
+          <span *ngIf="isUpdating">Updating...</span>
+          <span *ngIf="!isUpdating">Update Product</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Product Details Modal -->
+<div class="modal-overlay" *ngIf="showDetailsModal" (click)="closeDetailsModal()">
+  <div class="modal-content details-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Product Details</h2>
+      <button class="modal-close-btn" (click)="closeDetailsModal()">&times;</button>
+    </div>
+
+    <div class="details-content">
+      <div class="product-image-section">
+        <img
+          [src]="getProductImageUrl(selectedProduct)"
+          class="modal-product-image"
+          [alt]="selectedProduct.name"
+        />
+        <div *ngIf="hasDiscount(selectedProduct)" class="discount-badge-large">
+          -{{ selectedProduct.discountRate }}%
+        </div>
+      </div>
+
+      <div class="product-details-section">
+        <h3>{{ selectedProduct?.name }}</h3>
+
+        <div class="detail-row">
+          <strong>Product Code:</strong> {{ selectedProduct.productCode }}
+        </div>
+
+        <div class="detail-row" *ngIf="selectedProduct?.category">
+          <strong>Category:</strong> {{ selectedProduct.category }}
+        </div>
+
+        <div class="detail-row">
+          <strong>Price:</strong>
+          <span class="price-details">
+            <span *ngIf="hasDiscount(selectedProduct)" class="original-price-modal">
+              {{ formatPrice(selectedProduct.price) }}
+            </span>
+            <span class="current-price-modal">
+              {{ formatPrice(getDiscountedPrice(selectedProduct)) }}
+            </span>
+          </span>
+        </div>
+
+        <div class="detail-row">
+          <strong>Minimum Quantity:</strong> {{ selectedProduct.minimumQuantity }}
+        </div>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-secondary" (click)="closeDetailsModal()">
+        Close
+      </button>
+      <button class="btn-primary" (click)="openUpdateModalFromDetails()">
+        Edit Product
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-overlay" *ngIf="showDeleteModal" (click)="closeDeleteModal()">
+  <div class="modal-content delete-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Confirm Delete</h2>
+      <button class="modal-close-btn" (click)="closeDeleteModal()">&times;</button>
+    </div>
+
+    <div class="delete-content">
+      <div class="warning-icon">⚠️</div>
+      <p>Are you sure you want to delete this product?</p>
+      <div class="product-to-delete">
+        <strong>{{ productToDelete?.name }}</strong>
+        <span class="product-code-small">{{ productToDelete?.productCode }}</span>
+      </div>
+      <p class="warning-text">This action cannot be undone.</p>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-secondary" (click)="closeDeleteModal()">
+        Cancel
+      </button>
+      <button class="btn-danger" (click)="deleteProduct()" [disabled]="isDeleting">
+        <span *ngIf="isDeleting">Deleting...</span>
+        <span *ngIf="!isDeleting">Delete Product</span>
+      </button>
+    </div>
+  </div>
+</div>

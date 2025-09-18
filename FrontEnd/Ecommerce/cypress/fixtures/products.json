@@ -1,0 +1,18 @@
+{
+  "validProduct": {
+    "productCode": "P001",
+    "name": "Test Product",
+    "category": "Electronics",
+    "price": 99.99,
+    "minimumQuantity": 1,
+    "discountRate": 10
+  },
+  "invalidProduct": {
+    "productCode": "",
+    "name": "",
+    "category": "",
+    "price": -1,
+    "minimumQuantity": 0,
+    "discountRate": -5
+  }
+}

@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "cd0JobkLJmzkqYOGN/Cqs77MoFWZTUYEtDjCbf7fW/0=",
+  "Hash": "Rdc8VpY0e5PFIPASgRXE6MM/BXK1ZfA/MIeXnmu0Hgs=",
   "Source": "ClientWebSiteApi",
   "BasePath": "_content/ClientWebSiteApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ClientWebSiteApi\\wwwroot",
+      "Source": "ClientWebSiteApi",
+      "ContentRoot": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\",
+      "BasePath": "_content/ClientWebSiteApi",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [],
   "Endpoints": []
 }

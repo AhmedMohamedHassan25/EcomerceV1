@@ -1,0 +1,83 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Welcome Back</h2>
+      <p>Please sign in to your account</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div *ngIf="errorMessage" class="error-message" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <div class="form-field">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-input"
+          [class.error]="username?.invalid && username?.touched"
+          placeholder="Enter your username"
+          autocomplete="username"
+        />
+        <div
+          *ngIf="username?.invalid && username?.touched"
+          class="field-error"
+          role="alert"
+        >
+          {{ getFieldErrorMessage('username') }}
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="password">Password</label>
+        <div class="password-input-container">
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            id="password"
+            formControlName="password"
+            class="form-input"
+            [class.error]="password?.invalid && password?.touched"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="togglePasswordVisibility()"
+            [attr.aria-label]="hidePassword ? 'Show password' : 'Hide password'"
+          >
+            <span class="password-toggle-icon">
+              {{ hidePassword ? '👁️' : '🙈' }}
+            </span>
+          </button>
+        </div>
+        <div
+          *ngIf="password?.invalid && password?.touched"
+          class="field-error"
+          role="alert"
+        >
+          {{ getFieldErrorMessage('password') }}
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="loginForm.invalid || isLoading"
+      >
+        <span *ngIf="isLoading" class="loading-spinner"></span>
+        <span>{{ isLoading ? 'Signing In...' : 'Sign In' }}</span>
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <p>Don't have an account?
+        <button type="button" class="link-button" (click)="navigateToRegister()">
+          Sign up here
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
