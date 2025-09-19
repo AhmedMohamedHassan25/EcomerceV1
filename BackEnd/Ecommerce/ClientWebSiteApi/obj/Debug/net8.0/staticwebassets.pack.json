@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\5f0e7ec2-f39f-4d54-b0f0-494d62553921.jpg",
+      "PackagePath": "staticwebassets\\products\\5f0e7ec2-f39f-4d54-b0f0-494d62553921.jpg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\63218775-0a81-489a-b60f-5c9516ac0ff3.jpg",
+      "PackagePath": "staticwebassets\\products\\63218775-0a81-489a-b60f-5c9516ac0ff3.jpg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\f4904e94-6933-49af-bafd-97f064786317.png",
+      "PackagePath": "staticwebassets\\products\\f4904e94-6933-49af-bafd-97f064786317.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ClientWebSiteApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ClientWebSiteApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ClientWebSiteApi.props",
+      "PackagePath": "build\\ClientWebSiteApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ClientWebSiteApi.props",
+      "PackagePath": "buildMultiTargeting\\ClientWebSiteApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ClientWebSiteApi.props",
+      "PackagePath": "buildTransitive\\ClientWebSiteApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -4,8 +4,9 @@
     <div class="header-content">
       <h1>Products</h1>
       <div class="user-info">
-        <span>Welcome, {{ currentUser?.username }}</span>
+        <span>Welcome, {{ getcurrentUser()?.userName }}</span>
         <button class="logout-btn" (click)="logout()">Logout</button>
+
       </div>
     </div>
   </header>
@@ -45,10 +46,10 @@
   </div>
 
   <!-- Error State -->
-  <div *ngIf="errorMessage && !isLoading" class="error-container">
+  <!-- <div *ngIf="errorMessage && !isLoading" class="error-container">
     <p class="error-message">{{ errorMessage }}</p>
     <button (click)="loadProducts()" class="retry-btn">Try Again</button>
-  </div>
+  </div> -->
 
   <!-- Products Grid/List -->
   <main *ngIf="!isLoading && !errorMessage" class="products-main">
@@ -66,7 +67,6 @@
           <img
             [src]="getProductImageUrl(product)"
             class="product-image"
-            (error)="onImageError($event)"
             loading="lazy"
           />
           <div *ngIf="hasDiscount(product)" class="discount-badge">
@@ -162,21 +162,21 @@
 
 <!-- Create Product Modal -->
 
-<div class="modal-overlay" *ngIf="showCreateModal" (click)="closeUpdateModal()">
-  <div class="modal-content update-modal" (click)="$event.stopPropagation()">
+<div class="modal-overlay" *ngIf="showCreateModal" (click)="closeCreateModal()">
+  <div class="modal-content Create-modal" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h2>Update Product</h2>
-      <button class="modal-close-btn" (click)="closeUpdateModal()">&times;</button>
+      <h2>Create Product</h2>
+      <button class="modal-close-btn" (click)="closeCreateModal()">&times;</button>
     </div>
 
-    <form class="update-form" (ngSubmit)="updateProduct()" #updateForm="ngForm">
+    <form class="create-form" (ngSubmit)="createProduct()" #createForm="ngForm">
       <div class="form-group">
         <label for="productName">Product Name *</label>
         <input
           type="text"
           id="productName"
           class="form-control"
-          [(ngModel)]="selectedProduct.name"
+          [(ngModel)]="SelectedCreatedProduct.name"
           name="name"
           required
         />
@@ -190,7 +190,7 @@
           type="text"
           id="category"
           class="form-control"
-          [(ngModel)]="selectedProduct.category"
+          [(ngModel)]="SelectedCreatedProduct.category"
           name="category"
         />
       </div>
@@ -202,7 +202,7 @@
             type="number"
             id="price"
             class="form-control"
-            [(ngModel)]="selectedProduct.price"
+            [(ngModel)]="SelectedCreatedProduct.price"
             name="price"
             min="0"
             step="0.01"
@@ -216,7 +216,7 @@
             type="number"
             id="discountRate"
             class="form-control"
-            [(ngModel)]="selectedProduct.discountRate"
+            [(ngModel)]="SelectedCreatedProduct.discountRate"
             name="discountRate"
             min="0"
             max="100"
@@ -230,22 +230,43 @@
           type="number"
           id="minimumQuantity"
           class="form-control"
-          [(ngModel)]="selectedProduct.minimumQuantity"
+          [(ngModel)]="SelectedCreatedProduct.minimumQuantity"
           name="minimumQuantity"
           min="10"
           required
         />
       </div>
+           <div class="form-group">
+              <label>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="showImageUpload"
+                  name="addImage"
+                />
+                Add Product Image
+              </label>
+            </div>
+
+            <div class="form-group" *ngIf="showImageUpload">
+              <label for="productImage">Upload Image</label>
+              <input
+                type="file"
+                id="productImage"
+                class="form-control"
+                (change)="onFileSelected($event)"
+                accept="image/*"
+              />
+            </div>
 
 
 
       <div class="modal-actions">
-        <button type="button" class="btn-secondary" (click)="closeUpdateModal()">
+        <button type="button" class="btn-secondary" (click)="closeCreateModal()">
           Cancel
         </button>
-        <button type="submit" class="btn-primary" [disabled]="!updateForm.valid || isUpdating">
-          <span *ngIf="isUpdating">Updating...</span>
-          <span *ngIf="!isUpdating">Update Product</span>
+        <button type="submit" class="btn-primary" [disabled]="!createForm.valid || isCreating">
+          <span *ngIf="isCreating">Creating...</span>
+          <span *ngIf="!isCreating">Create Product</span>
         </button>
       </div>
     </form>
@@ -262,6 +283,19 @@
 
     <form class="update-form" (ngSubmit)="updateProduct()" #updateForm="ngForm">
       <div class="form-group">
+
+        <div class="form-group" >
+        <input
+          type="text"
+          id="productId"
+          class="form-control"
+          [(ngModel)]="selectedProduct.productId"
+          name="productId"
+          readonly
+          style="background-color: #f8f9fa; color: #6c757d;"
+         hidden/>
+      </div>
+
         <label for="productName">Product Name *</label>
         <input
           type="text"
@@ -285,6 +319,7 @@
           name="category"
         />
       </div>
+
 
       <div class="form-row">
         <div class="form-group half">
@@ -364,13 +399,13 @@
       </div>
 
       <div class="product-details-section">
-        <h3>{{ selectedProduct?.name }}</h3>
+        <h3>{{ selectedProduct.name }}</h3>
 
         <div class="detail-row">
           <strong>Product Code:</strong> {{ selectedProduct.productCode }}
         </div>
 
-        <div class="detail-row" *ngIf="selectedProduct?.category">
+        <div class="detail-row" *ngIf="selectedProduct?.category" >
           <strong>Category:</strong> {{ selectedProduct.category }}
         </div>
 

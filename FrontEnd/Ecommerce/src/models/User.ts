@@ -1,9 +1,9 @@
 export interface User {
-  id?: number;
-  username: string;
+  userId?: number;
+  userName: string;
   email: string;
   password?: string;
-  lastLoginTime?: Date;
+  createdAt?: Date;
 }
 
 export interface LoginRequest {

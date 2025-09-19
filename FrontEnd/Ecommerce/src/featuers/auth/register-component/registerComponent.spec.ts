@@ -1,208 +1,380 @@
-// register.component.spec.ts
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
-
 import { Register } from './registerComponent';
 import { AuthService } from '../../../services/auth-service';
 import { RegisterRequest } from '../../../models/User';
 
-
-describe('RegisterComponent', () => {
+describe('Register', () => {
   let component: Register;
   let fixture: ComponentFixture<Register>;
-  let authService: jest.Mocked<AuthService>;
-  let router: jest.Mocked<Router>;
-
-  const mockUser = {
-    id: 1,
-    username: 'testuser',
-    email: 'test@example.com'
-  };
+  let mockAuthService: jest.Mocked<AuthService>;
+  let mockRouter: jest.Mocked<Router>;
 
   beforeEach(async () => {
-    const authServiceMock: Partial<jest.Mocked<AuthService>> = {
+    // Create mock services
+    mockAuthService = {
       register: jest.fn(),
-      isAuthenticated: false
-    };
-
-    const routerMock: Partial<jest.Mocked<Router>> = {
+      get isAuthenticated() {
+        return this._isAuthenticated ?? false;
+      },
+      _isAuthenticated: false
+    } as any;
+    mockRouter = {
       navigate: jest.fn()
-    };
+    } as any;
+
+
 
     await TestBed.configureTestingModule({
-      declarations: [Register],
-      imports: [ReactiveFormsModule],
+      imports: [Register, ReactiveFormsModule],
       providers: [
-        { provide: AuthService, useValue: authServiceMock },
-        { provide: Router, useValue: routerMock }
+        FormBuilder,
+        { provide: AuthService, useValue: mockAuthService },
+        { provide: Router, useValue: mockRouter }
       ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(Register);
     component = fixture.componentInstance;
-    authService = TestBed.inject(AuthService) as jest.Mocked<AuthService>;
-    router = TestBed.inject(Router) as jest.Mocked<Router>;
-  });
-
-  beforeEach(() => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  it('should initialize form with empty values', () => {
-    expect(component.registerForm.get('username')?.value).toBe('');
-    expect(component.registerForm.get('email')?.value).toBe('');
-    expect(component.registerForm.get('password')?.value).toBe('');
-    expect(component.registerForm.get('confirmPassword')?.value).toBe('');
-  });
+  describe('Component Initialization', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
 
-  it('should require all fields', () => {
-    const controls = ['username', 'email', 'password', 'confirmPassword'];
-    controls.forEach(controlName => {
-      const control = component.registerForm.get(controlName);
-      expect(control?.hasError('required')).toBeTruthy();
+    it('should initialize form with empty values', () => {
+      expect(component.registerForm).toBeDefined();
+      expect(component.registerForm.get('username')?.value).toBe('');
+      expect(component.registerForm.get('email')?.value).toBe('');
+      expect(component.registerForm.get('password')?.value).toBe('');
+      expect(component.registerForm.get('confirmPassword')?.value).toBe('');
+    });
+
+    it('should redirect to products if already authenticated', () => {
+        (mockAuthService as any).isAuthenticated = true;
+      component.ngOnInit();
+      expect(mockRouter.navigate).toHaveBeenCalledWith(['/products']);
+    });
+
+    it('should not redirect if not authenticated', () => {
+      (mockAuthService as any).isAuthenticated = true;
+      mockRouter.navigate.mockClear();
+      component.ngOnInit();
+      expect(mockRouter.navigate).not.toHaveBeenCalled();
     });
   });
 
-  it('should validate email format', () => {
-    const emailControl = component.registerForm.get('email');
-    emailControl?.setValue('invalid-email');
-    expect(emailControl?.hasError('email')).toBeTruthy();
+  describe('Form Validation', () => {
+    it('should validate required fields', () => {
+      const usernameControl = component.registerForm.get('username');
+      const emailControl = component.registerForm.get('email');
+      const passwordControl = component.registerForm.get('password');
+      const confirmPasswordControl = component.registerForm.get('confirmPassword');
 
-    emailControl?.setValue('valid@example.com');
-    expect(emailControl?.hasError('email')).toBeFalsy();
-  });
-
-  it('should validate username pattern', () => {
-    const usernameControl = component.registerForm.get('username');
-    usernameControl?.setValue('invalid-username!');
-    expect(usernameControl?.hasError('pattern')).toBeTruthy();
-
-    usernameControl?.setValue('valid_username123');
-    expect(usernameControl?.hasError('pattern')).toBeFalsy();
-  });
-
-  it('should validate password pattern', () => {
-    const passwordControl = component.registerForm.get('password');
-    passwordControl?.setValue('weak');
-    expect(passwordControl?.hasError('pattern')).toBeTruthy();
-
-    passwordControl?.setValue('StrongPassword123!');
-    expect(passwordControl?.hasError('pattern')).toBeFalsy();
-  });
-
-  it('should validate password confirmation', () => {
-    component.registerForm.patchValue({
-      password: 'password123',
-      confirmPassword: 'different'
+      expect(usernameControl?.hasError('required')).toBeTruthy();
+      expect(emailControl?.hasError('required')).toBeTruthy();
+      expect(passwordControl?.hasError('required')).toBeTruthy();
+      expect(confirmPasswordControl?.hasError('required')).toBeTruthy();
     });
 
-    expect(component.registerForm.hasError('passwordMismatch')).toBeTruthy();
+    it('should validate username length and pattern', () => {
+      const usernameControl = component.registerForm.get('username');
 
-    component.registerForm.patchValue({
-      confirmPassword: 'password123'
+      // Test minLength
+      usernameControl?.setValue('ab');
+      expect(usernameControl?.hasError('minlength')).toBeTruthy();
+
+      // Test maxLength
+      usernameControl?.setValue('a'.repeat(51));
+      expect(usernameControl?.hasError('maxlength')).toBeTruthy();
+
+      // Test pattern - invalid characters
+      usernameControl?.setValue('user-name!');
+      expect(usernameControl?.hasError('pattern')).toBeTruthy();
+
+      // Test valid username
+      usernameControl?.setValue('valid_user123');
+      expect(usernameControl?.valid).toBeTruthy();
     });
 
-    expect(component.registerForm.hasError('passwordMismatch')).toBeFalsy();
-  });
+    it('should validate email format', () => {
+      const emailControl = component.registerForm.get('email');
 
-  it('should register user with valid form', () => {
-    authService.register.mockReturnValue(of(mockUser));
+      // Invalid email
+      emailControl?.setValue('invalid-email');
+      expect(emailControl?.hasError('email')).toBeTruthy();
 
-    component.registerForm.patchValue({
-      username: 'testuser',
-      email: 'test@example.com',
-      password: 'Password123!',
-      confirmPassword: 'Password123!'
+      // Valid email
+      emailControl?.setValue('user@example.com');
+      expect(emailControl?.valid).toBeTruthy();
     });
 
-    component.onSubmit();
+    it('should validate password complexity', () => {
+      const passwordControl = component.registerForm.get('password');
 
-    const expectedUserData: RegisterRequest = {
-      username: 'testuser',
-      email: 'test@example.com',
-      password: 'Password123!'
-    };
+      // Too short
+      passwordControl?.setValue('abc');
+      expect(passwordControl?.hasError('minlength')).toBeTruthy();
 
-    expect(authService.register).toHaveBeenCalledWith(expectedUserData);
-  });
+      // Missing requirements
+      passwordControl?.setValue('password');
+      expect(passwordControl?.hasError('pattern')).toBeTruthy();
 
-  it('should show success message and navigate on successful registration', (done) => {
-    authService.register.mockReturnValue(of(mockUser));
-
-    component.registerForm.patchValue({
-      username: 'testuser',
-      email: 'test@example.com',
-      password: 'Password123!',
-      confirmPassword: 'Password123!'
+      // Valid password
+      passwordControl?.setValue('Password123!');
+      expect(passwordControl?.valid).toBeTruthy();
     });
 
-    component.onSubmit();
+    it('should validate password confirmation match', () => {
+      component.registerForm.patchValue({
+        password: 'Password123!',
+        confirmPassword: 'DifferentPassword123!'
+      });
 
-    expect(component.successMessage).toBeTruthy();
-    expect(component.isLoading).toBe(false);
+      expect(component.registerForm.hasError('passwordMismatch')).toBeTruthy();
 
-    setTimeout(() => {
-      expect(router.navigate).toHaveBeenCalledWith(['/login']);
-      done();
-    }, 2100);
+      component.registerForm.patchValue({
+        confirmPassword: 'Password123!'
+      });
+
+      expect(component.registerForm.hasError('passwordMismatch')).toBeFalsy();
+    });
   });
 
-  it('should show error message on failed registration', () => {
-    authService.register.mockReturnValue(throwError(() => new Error('Registration failed')));
+  describe('Form Getters', () => {
+    it('should return correct form controls', () => {
+      expect(component.username).toBe(component.registerForm.get('username'));
+      expect(component.email).toBe(component.registerForm.get('email'));
+      expect(component.password).toBe(component.registerForm.get('password'));
+      expect(component.confirmPassword).toBe(component.registerForm.get('confirmPassword'));
+    });
+  });
 
-    component.registerForm.patchValue({
-      username: 'testuser',
-      email: 'test@example.com',
-      password: 'Password123!',
-      confirmPassword: 'Password123!'
+  describe('Password Visibility Toggle', () => {
+    it('should toggle password visibility', () => {
+      expect(component.hidePassword).toBeTruthy();
+      component.togglePasswordVisibility();
+      expect(component.hidePassword).toBeFalsy();
+      component.togglePasswordVisibility();
+      expect(component.hidePassword).toBeTruthy();
     });
 
-    component.onSubmit();
-
-    expect(component.errorMessage).toBe('Registration failed');
-    expect(component.isLoading).toBe(false);
+    it('should toggle confirm password visibility', () => {
+      expect(component.hideConfirmPassword).toBeTruthy();
+      component.toggleConfirmPasswordVisibility();
+      expect(component.hideConfirmPassword).toBeFalsy();
+      component.toggleConfirmPasswordVisibility();
+      expect(component.hideConfirmPassword).toBeTruthy();
+    });
   });
 
-  it('should toggle password visibility', () => {
-    expect(component.hidePassword).toBeTruthy();
-    component.togglePasswordVisibility();
-    expect(component.hidePassword).toBeFalsy();
+  describe('Form Submission', () => {
+    beforeEach(() => {
+      // Set up valid form data
+      component.registerForm.patchValue({
+        username: 'testuser',
+        email: 'test@example.com',
+        password: 'Password123!',
+        confirmPassword: 'Password123!'
+      });
+    });
+
+    it('should submit valid form successfully (with User response)', () => {
+      const mockUser = {
+        userName: 'testuser',
+        email: 'test@example.com'
+      }; // شكل الـ User
+
+      mockAuthService.register.mockReturnValue(of(mockUser as any));
+
+      component.onSubmit();
+
+      expect(component.isLoading).toBeFalsy();
+      expect(mockAuthService.register).toHaveBeenCalledWith({
+        username: 'testuser',
+        email: 'test@example.com',
+        password: 'Password123!'
+      } as RegisterRequest);
+      expect(component.successMessage)
+        .toBe('Registration successful! Please sign in with your credentials.');
+    });
+
+    it('should submit valid form successfully (with message response)', () => {
+      const mockResponse = { message: 'Registration successful' };
+      mockAuthService.register.mockReturnValue(of(mockResponse) as any);
+
+      component.onSubmit();
+
+      expect(component.isLoading).toBeFalsy();
+      expect(component.successMessage)
+        .toBe('Registration successful! Please sign in with your credentials.');
+    });
+
+    it('should navigate to login after successful registration', (done) => {
+      const mockResponse = { message: 'Registration successful' };
+      mockAuthService.register.mockReturnValue(of(mockResponse) as any);
+
+      component.onSubmit();
+
+      setTimeout(() => {
+        expect(mockRouter.navigate).toHaveBeenCalledWith(['/login']);
+        done();
+      }, 2100);
+    });
+
+    it('should handle registration error', () => {
+      const errorMessage = 'Registration failed';
+      mockAuthService.register.mockReturnValue(throwError(() => new Error(errorMessage)));
+
+      component.onSubmit();
+
+      expect(component.isLoading).toBeFalsy();
+      expect(component.errorMessage).toBe(errorMessage);
+    });
+
+    it('should not submit invalid form', () => {
+      component.registerForm.patchValue({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      });
+
+      component.onSubmit();
+
+      expect(mockAuthService.register).not.toHaveBeenCalled();
+      expect(component.registerForm.get('username')?.touched).toBeTruthy();
+    });
+
+    it('should set loading state during submission', () => {
+      mockAuthService.register.mockReturnValue(of({}) as any);
+
+      component.onSubmit();
+
+      // Should be set to true immediately, then false after completion
+      expect(component.isLoading).toBeFalsy(); // After completion
+    });
   });
 
-  it('should toggle confirm password visibility', () => {
-    expect(component.hideConfirmPassword).toBeTruthy();
-    component.toggleConfirmPasswordVisibility();
-    expect(component.hideConfirmPassword).toBeFalsy();
+
+  describe('Error Messages', () => {
+    it('should return required error message', () => {
+      const usernameControl = component.registerForm.get('username');
+      usernameControl?.markAsTouched();
+
+      const errorMessage = component.getFieldErrorMessage('username');
+      expect(errorMessage).toBe('Username is required');
+    });
+
+    it('should return minlength error message', () => {
+      const usernameControl = component.registerForm.get('username');
+      usernameControl?.setValue('ab');
+      usernameControl?.markAsTouched();
+
+      const errorMessage = component.getFieldErrorMessage('username');
+      expect(errorMessage).toBe('Username must be at least 3 characters long');
+    });
+
+    it('should return maxlength error message', () => {
+      const emailControl = component.registerForm.get('email');
+      emailControl?.setValue('a'.repeat(101) + '@example.com');
+      emailControl?.markAsTouched();
+
+      const errorMessage = component.getFieldErrorMessage('email');
+      expect(errorMessage).toBe('Email cannot exceed 100 characters');
+    });
+
+    it('should return email error message', () => {
+      const emailControl = component.registerForm.get('email');
+      emailControl?.setValue('invalid-email');
+      emailControl?.markAsTouched();
+
+      const errorMessage = component.getFieldErrorMessage('email');
+      expect(errorMessage).toBe('Please enter a valid email address');
+    });
+
+    it('should return username pattern error message', () => {
+      const usernameControl = component.registerForm.get('username');
+      usernameControl?.setValue('user-name!');
+      usernameControl?.markAsTouched();
+
+      const errorMessage = component.getFieldErrorMessage('username');
+      expect(errorMessage).toBe('Username can only contain letters, numbers, and underscores');
+    });
+
+    it('should return password pattern error message', () => {
+      const passwordControl = component.registerForm.get('password');
+      passwordControl?.setValue('weakpassword');
+      passwordControl?.markAsTouched();
+
+      const errorMessage = component.getFieldErrorMessage('password');
+      expect(errorMessage).toBe('Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character');
+    });
+
+    it('should return password mismatch error message', () => {
+      component.registerForm.patchValue({
+        password: 'Password123!',
+        confirmPassword: 'DifferentPassword123!'
+      });
+
+      const errorMessage = component.getFieldErrorMessage('confirmPassword');
+      expect(errorMessage).toBe('Passwords do not match');
+    });
+
+    it('should return empty string for valid field', () => {
+      const usernameControl = component.registerForm.get('username');
+      usernameControl?.setValue('validuser');
+
+      const errorMessage = component.getFieldErrorMessage('username');
+      expect(errorMessage).toBe('');
+    });
   });
 
-  it('should navigate to login', () => {
-    component.navigateToLogin();
-    expect(router.navigate).toHaveBeenCalledWith(['/login']);
+  describe('Navigation', () => {
+    it('should navigate to login page', () => {
+      component.navigateToLogin();
+      expect(mockRouter.navigate).toHaveBeenCalledWith(['/login']);
+    });
   });
 
-  it('should return correct error messages', () => {
-    const usernameControl = component.registerForm.get('username');
-    usernameControl?.setValue('');
-    usernameControl?.markAsTouched();
+  describe('Component Cleanup', () => {
+    it('should complete destroy subject on ngOnDestroy', () => {
+      const destroySpy = jest.spyOn(component['destroy$'], 'next');
+      const completeSpy = jest.spyOn(component['destroy$'], 'complete');
 
-    expect(component.getFieldErrorMessage('username')).toBe('Username is required');
+      component.ngOnDestroy();
 
-    usernameControl?.setValue('ab');
-    expect(component.getFieldErrorMessage('username')).toBe('Username must be at least 3 characters long');
-
-    usernameControl?.setValue('invalid!');
-    expect(component.getFieldErrorMessage('username')).toBe('Username can only contain letters, numbers, and underscores');
+      expect(destroySpy).toHaveBeenCalled();
+      expect(completeSpy).toHaveBeenCalled();
+    });
   });
 
-  it('should redirect if already authenticated', () => {
-    jest.spyOn(authService, 'isAuthenticated', 'get').mockReturnValue(true);
-    component.ngOnInit();
-    expect(router.navigate).toHaveBeenCalledWith(['/products']);
+  describe('Private Methods', () => {
+    it('should mark all form controls as touched', () => {
+      const usernameControl = component.registerForm.get('username');
+      const emailControl = component.registerForm.get('email');
+      const passwordControl = component.registerForm.get('password');
+      const confirmPasswordControl = component.registerForm.get('confirmPassword');
+
+      expect(usernameControl?.touched).toBeFalsy();
+      expect(emailControl?.touched).toBeFalsy();
+      expect(passwordControl?.touched).toBeFalsy();
+      expect(confirmPasswordControl?.touched).toBeFalsy();
+
+      component['markFormGroupTouched']();
+
+      expect(usernameControl?.touched).toBeTruthy();
+      expect(emailControl?.touched).toBeTruthy();
+      expect(passwordControl?.touched).toBeTruthy();
+      expect(confirmPasswordControl?.touched).toBeTruthy();
+    });
   });
 });

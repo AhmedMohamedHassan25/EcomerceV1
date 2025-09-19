@@ -9,8 +9,7 @@ import { AuthService } from './auth-service';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService { // غيرت الاسم ليكون موحد
-  private readonly apiUrl = `${environment.BaseUrl}/Products`;
+export class ProductService {
 
   constructor(
     private httpClient: HttpClient,
@@ -18,12 +17,9 @@ export class ProductService { // غيرت الاسم ليكون موحد
   ) {}
 
   getAllProducts(): Observable<ProductResponse> {
-    console.log('Attempting to fetch products from:', this.apiUrl);
-    console.log('Is user authenticated?', this.authService.isAuthenticated);
-    console.log('Current token:', this.authService.getToken()?.substring(0, 20) + '...');
-    console.log('👤 Current user:', this.authService.currentUserValue);
 
-    return this.httpClient.get<ProductResponse>(this.apiUrl).pipe(
+
+    return this.httpClient.get<ProductResponse>(`${environment.BaseUrl}/Products`).pipe(
       tap(response => {
         console.log(' Products fetched successfully:', response);
       }),
@@ -40,11 +36,8 @@ export class ProductService { // غيرت الاسم ليكون موحد
   }
 
   getProductById(id: number): Observable<Product> {
-  console.log('🔍 Attempting to fetch product by ID:', id, 'from:', `${this.apiUrl}/${id}`);
-  console.log('🔑 Is user authenticated?', this.authService.isAuthenticated);
-  console.log('🎫 Current token:', this.authService.getToken()?.substring(0, 20) + '...');
-  console.log('👤 Current user:', this.authService.currentUserValue);
-  return this.httpClient.get<Product>(`${this.apiUrl}/Products/${id}`).pipe(
+
+  return this.httpClient.get<Product>(`$${environment.BaseUrl}/Products/${id}`).pipe(
     tap(response => {
       console.log('✅ Product fetched successfully:', response);
     }),
@@ -68,11 +61,8 @@ export class ProductService { // غيرت الاسم ليكون موحد
         minimumQuantity: product.minimumQuantity,
         discountRate: product.discountRate
     }
-  console.log('🆕 Attempting to create product:', product, 'at:', this.apiUrl);
-  console.log('🔑 Is user authenticated?', this.authService.isAuthenticated);
-  console.log('🎫 Current token:', this.authService.getToken()?.substring(0, 20) + '...');
-  console.log('👤 Current user:', this.authService.currentUserValue);
-  return this.httpClient.post<Product>(`${this.apiUrl}/Products/`, {item}).pipe(
+
+  return this.httpClient.post<Product>(`${environment.BaseUrl}/Products/`, item).pipe(
     tap(response => {
       console.log(' Product created successfully:', response);
     }),
@@ -87,6 +77,8 @@ export class ProductService { // غيرت الاسم ليكون موحد
       throw error;
     })
   );
+
+
 }
 
   updateProduct(id: number, product: Product): Observable<Product> {
@@ -98,14 +90,12 @@ export class ProductService { // غيرت الاسم ليكون موحد
         discountRate: product.discountRate
     }
 
-  console.log(' Attempting to update product:', id, 'with data:', product, 'at:', `${this.apiUrl}/${id}`);
-  console.log(' Is user authenticated?', this.authService.isAuthenticated);
-  console.log('Current token:', this.authService.getToken()?.substring(0, 20) + '...');
-  console.log('Current user:', this.authService.currentUserValue);
-  return this.httpClient.put<Product>(`${this.apiUrl}/Products/${id}`,{item}).pipe(
+          console.log(' Product updated :', item);
+
+  return this.httpClient.put<Product>(`${environment.BaseUrl}/Products/${id}`,item).pipe(
     tap(response => {
       console.log(' Product updated successfully:', response);
-      prompt("Product updated successfully");
+      alert("Product updated successfully");
     }),
     catchError(error => {
       console.error(' Error updating product:', error);
@@ -123,13 +113,12 @@ export class ProductService { // غيرت الاسم ليكون موحد
 
 
   deleteProduct(id: number): Observable<void> {
-    console.log(' Attempting to delete product:', id, 'at:', `${this.apiUrl}/${id}`);
-    console.log(' Is user authenticated?', this.authService.isAuthenticated);
-    console.log(' Current token:', this.authService.getToken()?.substring(0, 20) + '...');
-    console.log('Current user:', this.authService.currentUserValue);
-    return this.httpClient.delete<void>(`${this.apiUrl}/Products/${id}`).pipe(
+    // console.log(' Attempting to delete product:', id, 'at:', `${this.apiUrl}/${id}`);
+
+    return this.httpClient.delete<void>(`${environment.BaseUrl}/Products/${id}`).pipe(
       tap(() => {
         console.log(' Product deleted successfully, ID:', id);
+
       }),
       catchError(error => {
         console.error('Error deleting product:', error);
@@ -144,6 +133,32 @@ export class ProductService { // غيرت الاسم ليكون موحد
     );
   }
 
+
+  updateProductImage(id: number, imageFile: File): Observable<any> {
+  const formData = new FormData();
+  formData.append('file', imageFile);
+
+  console.log('Updating product image for ID:', id);
+  console.log('Image file:', imageFile.name);
+
+  return this.httpClient.post(`${environment.BaseUrl}/Products/${id}/image`, formData).pipe(
+    tap(response => {
+      console.log('Product image updated successfully:', response);
+      alert("Product image updated successfully");
+    }),
+    catchError(error => {
+      console.error('Error updating product image:', error);
+      console.error('Error details:', {
+        status: error.status,
+        message: error.message,
+        url: error.url,
+        productId: id,
+        fileName: imageFile?.name
+      });
+      throw error;
+    })
+  );
+}
 
 
 }

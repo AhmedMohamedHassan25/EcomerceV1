@@ -10,7 +10,7 @@ describe('Login and Product Flow', () => {
         refreshToken: 'mock-refresh-token',
         user: {
           id: 1,
-          username: 'testuser',
+          userName: 'testuser',
           email: 'test@example.com'
         },
         expiresAt: new Date(Date.now() + 3600000).toISOString()
@@ -22,17 +22,17 @@ describe('Login and Product Flow', () => {
       body: {
         products: [
           {
-            id: 1,
+            productId: 1,
             productCode: 'P001',
             name: 'Test Product 1',
             category: 'Electronics',
-            image: 'test1.jpg',
+            imagePath: 'test1.jpg',
             price: 100,
             minimumQuantity: 1,
             discountRate: 10
           },
           {
-            id: 2,
+            productId: 2,
             productCode: 'P002',
             name: 'Test Product 2',
             category: 'Clothing',

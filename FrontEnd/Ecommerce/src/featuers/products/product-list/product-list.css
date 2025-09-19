@@ -846,6 +846,10 @@
   width: 90%;
   max-width: 600px;
 }
+.create-modal {
+  width: 90%;
+  max-width: 600px;
+}
 
 .details-modal {
   width: 90%;
@@ -896,9 +900,13 @@
 }
 
 /* Update Modal Form */
+.create-form,
 .update-form {
-  padding: 24px;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .form-group {
   margin-bottom: 20px;
@@ -912,7 +920,7 @@
 }
 
 .form-control {
-  width: 100%;
+  width: 90%;
   padding: 10px 12px;
   border: 2px solid #ddd;
   border-radius: 6px;
@@ -934,7 +942,6 @@
   flex: 1;
 }
 
-/* Details Modal */
 .details-content {
   padding: 24px;
   display: flex;

@@ -129,7 +129,6 @@ export class AuthService {
     const token = this.getToken();
     const expiresAt = localStorage.getItem('token_expires_at');
 
-    // التحقق من صحة التوكن وعدم انتهاء صلاحيته
     if (userJson && token && expiresAt) {
       const expireDate = new Date(expiresAt);
       const now = new Date();
@@ -138,7 +137,6 @@ export class AuthService {
         const user = JSON.parse(userJson);
         this.currentUserSubject.next(user);
       } else {
-        // التوكن منتهي الصلاحية، قم بمسح البيانات
         this.clearAuthData();
       }
     }
@@ -161,10 +159,8 @@ export class AuthService {
     const expiresAt = new Date(expiresAtString);
     const now = new Date();
 
-    // حساب الوقت المتبقي بالمللي ثانية
     const timeUntilExpiry = expiresAt.getTime() - now.getTime();
 
-    // تحديث التوكن قبل 5 دقائق من انتهاء الصلاحية
     const refreshTime = timeUntilExpiry - (5 * 60 * 1000);
 
     console.log(`Token expires at: ${expiresAt}`);
@@ -184,7 +180,6 @@ export class AuthService {
         });
       }, refreshTime);
     } else if (timeUntilExpiry <= 0) {
-      // التوكن منتهي الصلاحية بالفعل
       console.log('Token already expired, logging out');
       this.logout();
     }
@@ -208,16 +203,21 @@ export class AuthService {
       return false;
     }
 
-    // التحقق من عدم انتهاء صلاحية التوكن
     const expireDate = new Date(expiresAt);
     const now = new Date();
 
     return expireDate > now;
   }
 
-  public get currentUserValue(): User | null {
-    return this.currentUserSubject.value;
+ public get currentUserValue(): User | null {
+  const value = this.currentUserSubject.value;
+  if (value) {
+    console.log("username:", value.userName);
+  } else {
+    console.log("No current user");
   }
+  return value;
+}
 
 
   private handleError(error: any): Observable<never> {

@@ -1,17 +1,34 @@
 import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
-
+import { Router } from '@angular/router';
 import { AuthGuard } from './auth-guard';
+import { AuthService } from '../services/auth-service';
 
-describe('authGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) =>
-      TestBed.runInInjectionContext(() => AuthGuard(...guardParameters));
+describe('AuthGuard', () => {
+  let guard: AuthGuard;
+  let authServiceMock: Partial<AuthService>;
+  let routerMock: Partial<Router>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    authServiceMock = { isAuthenticated:  true };
+    routerMock = { navigate: jest.fn() };
+
+    TestBed.configureTestingModule({
+      providers: [
+        AuthGuard,
+        { provide: AuthService, useValue: authServiceMock },
+        { provide: Router, useValue: routerMock },
+      ],
+    });
+
+    guard = TestBed.inject(AuthGuard);
   });
 
   it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
+    expect(guard).toBeTruthy();
+  });
+
+  it('should allow activation when authenticated', () => {
+    // Pass empty mocks for route and state if not used
+    expect(guard.canActivate({} as any, {} as any)).toBe(true);
   });
 });

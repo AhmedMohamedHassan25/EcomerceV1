@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject, takeUntil, Subscription } from 'rxjs';
+import { environment } from '../../../enviroments/environment.development';
 import { ProductService } from '../../../services/product-services';
 import { AuthService } from '../../../services/auth-service';
 import { Product } from '../../../models/Products';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../../models/User';
 
 @Component({
   selector: 'app-product-list',
@@ -21,25 +23,25 @@ export class ProductListComponent implements OnInit, OnDestroy {
   errorMessage = '';
   sub: Subscription[] = [] as Subscription[];
 
-  // Search functionality
   searchCategory: string = '';
 
-  // Modal states
   showUpdateModal: boolean = false;
   showCreateModal:boolean=false;
   showDetailsModal: boolean = false;
   showDeleteModal: boolean = false;
   selectedProduct: Product = {} as Product;
-  productToDelete: Product | null = null;
+  SelectedCreatedProduct:Product={} as Product;
+  productToDelete: Product  | null = null;
 
-  // Loading states for operations
+  showImageUpload  = false;
+  selectedFile: File | null = null;
+
   isUpdating: boolean = false;
+  isCreating: boolean = false;
   isDeleting: boolean = false;
 
-  // Hover functionality (keeping for backward compatibility)
   hoveredProduct: Product | null = null;
 
-  // Pagination
   currentPage = 1;
   pageSize = 12;
   totalPages = 1;
@@ -76,7 +78,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           this.products = response.items || [];
-          this.filteredProducts = [...this.products]; // Initialize filtered products
+          this.filteredProducts = [...this.products];
           this.totalProducts = this.filteredProducts.length;
           this.calculatePagination();
           this.updatePaginatedProducts();
@@ -90,23 +92,30 @@ export class ProductListComponent implements OnInit, OnDestroy {
       });
   }
    public CreateProduct(prd:Product): void {
-    this.isLoading = true;
-    this.errorMessage = '';
+  this.isLoading = true;
+  this.errorMessage = '';
 
-    this.productService.createProduct(prd)
-      .subscribe({
-        next: (response) => {
 
+}
+
+     uploadProductImage(productId: number, file: File): void {
+      this.isLoading = true;
+            console.log(productId);
+            console.log(file);
+            console.log("from Upload");
+
+      this.productService.updateProductImage(productId, file).subscribe({
+        next: () => {
+          console.log("Image uploaded successfully!");
           this.isLoading = false;
+
         },
-        error: (error) => {
-          this.errorMessage = error.message;
+        error: (err) => {
+          console.error("Image upload failed", err);
           this.isLoading = false;
         }
       });
-  }
-
-
+    }
   // Search functionality
   onSearchChange(): void {
     if (!this.searchCategory.trim()) {
@@ -119,11 +128,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
     }
 
     this.totalProducts = this.filteredProducts.length;
-    this.currentPage = 1; // Reset to first page
+    this.currentPage = 1;
     this.calculatePagination();
     this.updatePaginatedProducts();
   }
 
+
+  onFileSelected(event: Event): void {
+      const input = event.target as HTMLInputElement;
+      if (input.files && input.files.length > 0) {
+        this.selectedFile = input.files[0];
+        // console.log("Selected file:", this.selectedFile);
+      }
+    }
   clearSearch(): void {
     this.searchCategory = '';
     this.filteredProducts = [...this.products];
@@ -133,18 +150,21 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.updatePaginatedProducts();
   }
 
-  // Modal management
   openUpdateModal(product: Product): void {
-    this.selectedProduct = { ...product }; // Create a copy to avoid direct mutation
-    this.showUpdateModal = true;
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  }
-  openCreateModal( ): void {
-    var prd :Product
-    this.showCreateModal = true;
+    console.log(product);
 
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        this.selectedProduct = product as Product;
+
+    console.log(this.selectedProduct.productId );
+    this.showUpdateModal = true;
+    document.body.style.overflow = 'hidden';
   }
+ openCreateModal(): void {
+  this.SelectedCreatedProduct = {} as Product;
+  this.showCreateModal = true;
+  document.body.style.overflow = 'hidden';
+}
+
 
   openDetailsModal(product: Product): void {
     this.selectedProduct = product;
@@ -164,12 +184,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.isUpdating = false;
     document.body.style.overflow = 'auto';
   }
-  closeCreateModal(): void {
-    this.showCreateModal = false;
-    this.selectedProduct = {} as Product;
-    this.isUpdating = false;
-    document.body.style.overflow = 'auto';
-  }
+ closeCreateModal(): void {
+  this.showCreateModal = false;
+  this.SelectedCreatedProduct = {} as Product;
+  this.isCreating = false;
+  document.body.style.overflow = 'auto';
+}
 
 
   closeDetailsModal(): void {
@@ -194,21 +214,22 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   // CRUD operations
   updateProduct(): void {
-    if (!this.selectedProduct.id) {
+    if (!this.selectedProduct.productId) {
       this.showErrorMessage('Product ID is required for update');
       return;
     }
 
     this.isUpdating = true;
 
-    this.productService.updateProduct(this.selectedProduct.id, this.selectedProduct)
+    this.productService.updateProduct(this.selectedProduct.productId, this.selectedProduct)
       .subscribe({
         next: (updatedProduct) => {
-          // Update the product in the arrays
-          const index = this.products.findIndex(p => p.id === updatedProduct.id);
+          console.log("updated product :" +updatedProduct);
+          // console.log(updatedProduct);
+          const index = this.products.findIndex(p => p.productId === updatedProduct.productId);
           if (index !== -1) {
             this.products[index] = updatedProduct;
-            this.onSearchChange(); // Refresh filtered products
+            this.onSearchChange();
           }
 
           this.showSuccessMessage('Product updated successfully!');
@@ -221,19 +242,84 @@ export class ProductListComponent implements OnInit, OnDestroy {
       });
   }
 
+
+
+createProduct(): void {
+  this.isCreating = true;
+
+  this.productService.createProduct(this.SelectedCreatedProduct)
+    .subscribe({
+      next: (response: any) => {
+        console.log("=== Full API Response ===");
+        console.log(response);
+
+        let createdProduct: any;
+
+        if (response.value) {
+          createdProduct = response.value;
+        } else if (response.data) {
+          createdProduct = response.data;
+        } else {
+          createdProduct = response;
+        }
+
+        console.log("=== Extracted Product ===");
+        console.log(createdProduct);
+
+        const productId = createdProduct.productId ||
+                         createdProduct.id ||
+                         createdProduct.ID ||
+                         createdProduct.ProductId;
+
+
+
+        if (!productId) {
+          this.showErrorMessage('Product created but ID is missing');
+          this.isCreating = false;
+          return;
+        }
+
+        this.products.push(createdProduct);
+
+        if (this.selectedFile) {
+
+
+          this.uploadProductImage(productId, this.selectedFile);
+          this.showImageUpload = false;
+          this.selectedFile = null;
+        }
+
+        this.onSearchChange();
+
+        this.showSuccessMessage('Product created successfully!');
+        this.closeCreateModal();
+
+        this.isCreating = false;
+      },
+
+      error: (error) => {
+        console.error('=== Product Creation Error ===');
+        console.error(error);
+
+        this.showErrorMessage('Failed to create product: ' + error.message);
+        this.isCreating = false;
+      }
+    });
+}
+
   deleteProduct(): void {
-    if (!this.productToDelete?.id) {
+    if (!this.productToDelete?.productId) {
       this.showErrorMessage('Product ID is required for deletion');
       return;
     }
 
     this.isDeleting = true;
 
-    this.productService.deleteProduct(this.productToDelete.id)
+    this.productService.deleteProduct(this.productToDelete.productId)
       .subscribe({
         next: () => {
           // Remove the product from arrays
-          this.products = this.products.filter(p => p.id !== this.productToDelete!.id);
+          this.products = this.products.filter(p => p.productId !== this.productToDelete!.productId);
           this.onSearchChange(); // Refresh filtered products
 
           this.showSuccessMessage('Product deleted successfully!');
@@ -296,25 +382,16 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.hoveredProduct = null;
   }
 
-  getStockClass(stock: number): string {
-    if (stock > 50) return 'stock-high';
-    if (stock > 10) return 'stock-medium';
-    return 'stock-low';
-  }
 
-  addToCart(product: Product): void {
-    event?.stopPropagation();
-    console.log('Adding to cart:', product);
-    this.hideProductDetails();
-  }
+
 
   viewFullDetails(product: Product): void {
     event?.stopPropagation();
-    this.router.navigate(['/product', product.id]);
+    this.router.navigate(['/product', product.productId]);
   }
 
   onProductClick(product: Product): void {
-    this.router.navigate(['/product', product.id]);
+    this.router.navigate(['/product', product.productId]);
   }
 
   getDiscountedPrice(product: Product): number {
@@ -337,12 +414,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
 
-  get currentUser() {
-    return this.authService.currentUserValue;
-  }
-
+public getcurrentUser(): User | null {
+  return this.authService.currentUserValue;
+}
   getProductImageUrl(product: Product): string {
-    return product.image || '/assets/images/1.png';
+    // return `${environment.BaseUrl}/${product.imagePath}`|| '/assets/images/1.png';
+     return  '/assets/images/1.png';
   }
 
   onImageError(event: any): void {
@@ -350,39 +427,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   private showSuccessMessage(message: string): void {
-    // You can replace this with your notification service
     console.log('Success:', message);
-    // Example with a simple alert (replace with toast/snackbar)
     alert(message);
   }
 
   private showErrorMessage(message: string): void {
-    // You can replace this with your notification service
     console.error('Error:', message);
-    // Example with a simple alert (replace with toast/snackbar)
     alert(message);
   }
 
-  formatWeight(weight: string | number): string {
-    if (!weight) return '';
-    return typeof weight === 'string' ? weight : `${weight} kg`;
-  }
-
-  formatDimensions(dimensions: string): string {
-    if (!dimensions) return '';
-    return dimensions;
-  }
-
-  isInStock(product: Product): boolean {
-    return product.minimumQuantity > 0;
-  }
-
-  getStockStatus(stock: number): string {
-    if (stock === 0) return 'Out of Stock';
-    if (stock <= 5) return 'Low Stock';
-    if (stock <= 20) return 'Limited Stock';
-    return 'In Stock';
-  }
 
   onProductKeyDown(event: KeyboardEvent, product: Product): void {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -391,10 +444,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Handle ESC key to close modals
   onKeyDown(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
       if (this.showUpdateModal) this.closeUpdateModal();
+      if (this.showCreateModal) this.closeCreateModal();
       if (this.showDetailsModal) this.closeDetailsModal();
       if (this.showDeleteModal) this.closeDeleteModal();
     }
