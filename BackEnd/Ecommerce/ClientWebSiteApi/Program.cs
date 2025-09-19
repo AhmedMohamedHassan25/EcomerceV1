@@ -129,7 +129,7 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
-la
+
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.MapControllers();
 

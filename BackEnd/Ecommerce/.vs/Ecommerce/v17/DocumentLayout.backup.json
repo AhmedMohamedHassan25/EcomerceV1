@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\clientwebsiteapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\clientwebsiteapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\product\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -167,7 +167,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -184,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "ClientWebSiteApi\\Controllers\\ProductsController.cs",
@@ -223,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ClientWebSiteApi.http",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\ClientWebSiteApi.http",
               "RelativeDocumentMoniker": "ClientWebSiteApi\\ClientWebSiteApi.http",
@@ -236,26 +236,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Program.cs",
               "RelativeDocumentMoniker": "ClientWebSiteApi\\Program.cs",
               "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Program.cs",
               "RelativeToolTip": "ClientWebSiteApi\\Program.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAwwHcAAABnAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAwwIMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-17T17:17:38.01Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "ClientWebSiteApi\\Properties\\launchSettings.json",
               "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Properties\\launchSettings.json",
               "RelativeToolTip": "ClientWebSiteApi\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-17T18:57:51.713Z",
               "EditorCaption": ""
