@@ -426,39 +426,52 @@
   align-items: center;
   gap: 0.5rem;
   padding: 2rem;
+}
 
-  .pagination-btn {
-    background: white;
-    border: 2px solid #e2e8f0;
-    color: #4a5568;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
+.pagination-btn {
+  background: white;
+  border: 2px solid #e2e8f0;
+  color: #4a5568;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
 
-    &:hover:not(:disabled) {
-      background: #f7fafc;
-      border-color: #cbd5e0;
-    }
+.pagination-btn:hover:not(:disabled) {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
 
-    &:focus {
-      outline: none;
-      border-color: #3182ce;
-      box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
-    }
+.pagination-btn:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
 
-    &.active {
-      background: #3182ce;
-      border-color: #3182ce;
-      color: white;
-    }
+.pagination-btn.active {
+  background: #3182ce;
+  border-color: #3182ce;
+  color: white;
+}
 
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Debug info styles - remove after fixing */
+.debug-info {
+  background: #f0f0f0;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.debug-info p {
+  margin: 0.25rem 0;
 }
 
 @media (max-width: 768px) {

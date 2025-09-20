@@ -22,6 +22,8 @@ namespace Models
         [EmailAddress]
         public string Email { get; set; }
 
+        //public string  Rule{ get; set; }= "normal_user";
+
         public DateTime? LastLoginTime { get; set; }
 
         [StringLength(256)]

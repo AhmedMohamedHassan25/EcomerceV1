@@ -1,8 +1,8 @@
 
 export const environment = {
   production: false,
-  BaseUrl:'https://localhost:7169/api',
-baseImageUrl: 'http://localhost:5089',
+  BaseUrl:'https://localhost:5120/api',
+  baseImageUrl: 'https://localhost:7169',
   tokenRefreshThreshold: 300000,
   imageUploadMaxSize: 5242880,
   paginationPageSize: 12

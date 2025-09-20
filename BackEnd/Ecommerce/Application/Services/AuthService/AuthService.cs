@@ -95,6 +95,7 @@ namespace Application.Services.AuthService
 
         public async Task<bool> RevokeTokenAsync(string refreshToken)
         {
+
             var user = await _userRepository.GetByRefreshTokenAsync(refreshToken);
             if (user == null) return false;
 

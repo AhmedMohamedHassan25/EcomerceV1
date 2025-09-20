@@ -105,26 +105,6 @@
   },
   {
     "ContainingType": "ClientWebSiteApi.Controllers.ProductsController",
-    "Method": "GetProducts",
-    "RelativePath": "api/Products",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "Handmade.DTOs.SharedDTOs.EntityPaginated\u00601[[DTOs.Product.ProductDTO, DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ClientWebSiteApi.Controllers.ProductsController",
     "Method": "CreateProduct",
     "RelativePath": "api/Products",
     "HttpMethod": "POST",
@@ -254,6 +234,37 @@
     "ReturnTypes": [
       {
         "Type": "DTOs.SharedData.Result\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ClientWebSiteApi.Controllers.ProductsController",
+    "Method": "GetProducts",
+    "RelativePath": "api/Products/{pagenumber}/{pageSize}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pagenumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Handmade.DTOs.SharedDTOs.EntityPaginated\u00601[[DTOs.Product.ProductDTO, DTOs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

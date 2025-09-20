@@ -3,6 +3,66 @@
   "WorkspaceRootPath": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\user\\userdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\user\\userdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7A99512-8C46-4370-BCA4-9898EC571EDD}|Application\\Application.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\application\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7A99512-8C46-4370-BCA4-9898EC571EDD}|Application\\Application.csproj|solutionrelative:application\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\shareddata\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\shareddata\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\user\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\user\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\user\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\user\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\user\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\user\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\clientwebsiteapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\clientwebsiteapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FDCEA9D3-4CBA-4EE4-B8B0-CF16141D76E0}|IntegrationTestEcommerce\\IntegrationTestEcommerce.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\integrationtestecommerce\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDCEA9D3-4CBA-4EE4-B8B0-CF16141D76E0}|IntegrationTestEcommerce\\IntegrationTestEcommerce.csproj|solutionrelative:integrationtestecommerce\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FDCEA9D3-4CBA-4EE4-B8B0-CF16141D76E0}|IntegrationTestEcommerce\\IntegrationTestEcommerce.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\integrationtestecommerce\\webapplicationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDCEA9D3-4CBA-4EE4-B8B0-CF16141D76E0}|IntegrationTestEcommerce\\IntegrationTestEcommerce.csproj|solutionrelative:integrationtestecommerce\\webapplicationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7A99512-8C46-4370-BCA4-9898EC571EDD}|Application\\Application.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -51,32 +107,12 @@
       "RelativeMoniker": "D:0:0:{D7A99512-8C46-4370-BCA4-9898EC571EDD}|Application\\Application.csproj|solutionrelative:application\\services\\productservices\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\clientwebsiteapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\clientwebsiteapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\product\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\product\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\models\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|solutionrelative:models\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\clientwebsiteapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E44150F5-66BF-42F8-B322-0260BC0D9E3B}|ClientWebSiteApi\\ClientWebSiteApi.csproj|solutionrelative:clientwebsiteapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7A99512-8C46-4370-BCA4-9898EC571EDD}|Application\\Application.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\application\\mapper\\mapster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,10 +131,6 @@
       "RelativeMoniker": "D:0:0:{3E59FDA5-5AD6-49CB-84FB-F4BFAA45A454}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\dtos\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0234E9C9-94B4-4440-B481-E8400EE5CBD4}|DTOs\\DTOs.csproj|solutionrelative:dtos\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E59FDA5-5AD6-49CB-84FB-F4BFAA45A454}|Infrastructure\\Infrastructure.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\infrastructure\\productrepositroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E59FDA5-5AD6-49CB-84FB-F4BFAA45A454}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\productrepositroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -112,10 +144,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\models\\models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|solutionrelative:models\\models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|e:\\newmark\\ecomercev1\\backend\\ecommerce\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1FFE6F69-8920-4401-A6F5-38C98B8233F4}|Models\\Models.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\projects\\Ecommerce\\Context\\Migrations\\20250918051546_v3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -151,206 +179,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "test.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\test.cs",
-              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\test.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\test.cs",
-              "RelativeToolTip": "IntegrationTestEcommerce\\test.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T12:07:23.55Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthControllerTests.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\AuthControllerTests.cs",
-              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\AuthControllerTests.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\AuthControllerTests.cs",
-              "RelativeToolTip": "IntegrationTestEcommerce\\AuthControllerTests.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAiwGEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T12:01:02.147Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductControllerTest.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\ProductControllerTest.cs",
-              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\ProductControllerTest.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\ProductControllerTest.cs",
-              "RelativeToolTip": "IntegrationTestEcommerce\\ProductControllerTest.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAAAJ0AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T11:46:43.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "WebApplicationFactory.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\WebApplicationFactory.cs",
-              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\WebApplicationFactory.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\WebApplicationFactory.cs",
-              "RelativeToolTip": "IntegrationTestEcommerce\\WebApplicationFactory.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAQwBkAAAAPAAAAAAAAAA==",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\AuthService\\AuthService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\AuthService\\AuthService.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\AuthService\\AuthService.cs",
+              "RelativeToolTip": "Application\\Services\\AuthService\\AuthService.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAuwGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T11:40:16.421Z",
+              "WhenOpened": "2025-09-20T10:27:46.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Application",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Application.csproj",
-              "RelativeDocumentMoniker": "Application\\Application.csproj",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Application.csproj",
-              "RelativeToolTip": "Application\\Application.csproj",
+              "Title": "AuthResponse.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\SharedData\\AuthResponse.cs",
+              "RelativeDocumentMoniker": "DTOs\\SharedData\\AuthResponse.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\SharedData\\AuthResponse.cs",
+              "RelativeToolTip": "DTOs\\SharedData\\AuthResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-19T11:03:17.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\IUserService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\UserServices\\IUserService.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\IUserService.cs",
-              "RelativeToolTip": "Application\\Services\\UserServices\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T15:51:03.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\TokenService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\TokenService\\TokenService.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\TokenService.cs",
-              "RelativeToolTip": "Application\\Services\\TokenService\\TokenService.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAA4wK8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T04:25:48.975Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ITokenService.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\ITokenService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\TokenService\\ITokenService.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\ITokenService.cs",
-              "RelativeToolTip": "Application\\Services\\TokenService\\ITokenService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T18:10:04.061Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Program.cs",
-              "RelativeDocumentMoniker": "ClientWebSiteApi\\Program.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Program.cs",
-              "RelativeToolTip": "ClientWebSiteApi\\Program.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAIA4wIMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T17:17:38.01Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IProductService.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\IProductService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\ProductServices\\IProductService.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\IProductService.cs",
-              "RelativeToolTip": "Application\\Services\\ProductServices\\IProductService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T03:19:45.706Z",
+              "WhenOpened": "2025-09-20T10:27:29.947Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\UserService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\UserServices\\UserService.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\UserService.cs",
-              "RelativeToolTip": "Application\\Services\\UserServices\\UserService.cs",
-              "ViewState": "AgIAAOIAAAAAAAAAAAA4wP8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T10:56:59.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\ProductService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\ProductServices\\ProductService.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\ProductService.cs",
-              "RelativeToolTip": "Application\\Services\\ProductServices\\ProductService.cs",
-              "ViewState": "AgIAAPwBAAAAAAAAAAA4wBkCAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T03:19:45.16Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "ClientWebSiteApi\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Properties\\launchSettings.json",
-              "RelativeToolTip": "ClientWebSiteApi\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAMBSwBoAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-17T18:57:51.713Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ClientWebSiteApi.http",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\ClientWebSiteApi.http",
-              "RelativeDocumentMoniker": "ClientWebSiteApi\\ClientWebSiteApi.http",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\ClientWebSiteApi.http",
-              "RelativeToolTip": "ClientWebSiteApi\\ClientWebSiteApi.http",
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\User\\LoginDTO.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\LoginDTO.cs",
+              "RelativeToolTip": "DTOs\\User\\LoginDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-09-18T11:45:30.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ProductDTO.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\ProductDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\Product\\ProductDTO.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\ProductDTO.cs",
-              "RelativeToolTip": "DTOs\\Product\\ProductDTO.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAMBSwBIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T03:17:49.533Z",
+              "WhenOpened": "2025-09-20T10:27:26.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 8,
+              "Title": "UpdateUserDTO.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\UpdateUserDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\User\\UpdateUserDTO.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\UpdateUserDTO.cs",
+              "RelativeToolTip": "DTOs\\User\\UpdateUserDTO.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T10:27:07.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\User\\RegisterDTO.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\RegisterDTO.cs",
+              "RelativeToolTip": "DTOs\\User\\RegisterDTO.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T10:27:01.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserDTOs.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\UserDTOs.cs",
+              "RelativeDocumentMoniker": "DTOs\\User\\UserDTOs.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\User\\UserDTOs.cs",
+              "RelativeToolTip": "DTOs\\User\\UserDTOs.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T10:26:37.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Product.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\Product.cs",
               "RelativeDocumentMoniker": "Models\\Product.cs",
@@ -363,46 +274,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "BaseEntity.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\BaseEntity.cs",
-              "RelativeDocumentMoniker": "Models\\BaseEntity.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\BaseEntity.cs",
-              "RelativeToolTip": "Models\\BaseEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAMBSwA8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAkwBgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T11:59:37.04Z",
+              "WhenOpened": "2025-09-17T15:52:32.039Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 9,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "ClientWebSiteApi\\Controllers\\ProductsController.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "ClientWebSiteApi\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAuwHoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T09:24:33.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateProductDTO.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\CreateProductDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\Product\\CreateProductDTO.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\CreateProductDTO.cs",
+              "RelativeToolTip": "DTOs\\Product\\CreateProductDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:18:52.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "test.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\test.cs",
+              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\test.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\test.cs",
+              "RelativeToolTip": "IntegrationTestEcommerce\\test.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T12:07:23.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\appsettings.json",
               "RelativeDocumentMoniker": "ClientWebSiteApi\\appsettings.json",
               "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\appsettings.json",
               "RelativeToolTip": "ClientWebSiteApi\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAABJwAkAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-18T04:51:12.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IProductRepository.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Contract\\IProductRepository.cs",
-              "RelativeDocumentMoniker": "Application\\Contract\\IProductRepository.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Contract\\IProductRepository.cs",
-              "RelativeToolTip": "Application\\Contract\\IProductRepository.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAzwA8AAACMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T12:52:00.528Z",
+              "DocumentIndex": 14,
+              "Title": "ClientWebSiteApi.http",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\ClientWebSiteApi.http",
+              "RelativeDocumentMoniker": "ClientWebSiteApi\\ClientWebSiteApi.http",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\ClientWebSiteApi.http",
+              "RelativeToolTip": "ClientWebSiteApi\\ClientWebSiteApi.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-09-18T11:45:30.373Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 11,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\appsettings.Development.json",
               "RelativeDocumentMoniker": "ClientWebSiteApi\\appsettings.Development.json",
@@ -415,7 +365,189 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "ClientWebSiteApi\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "ClientWebSiteApi\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-17T18:57:51.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\IUserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserServices\\IUserService.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\IUserService.cs",
+              "RelativeToolTip": "Application\\Services\\UserServices\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T15:51:03.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Program.cs",
+              "RelativeDocumentMoniker": "ClientWebSiteApi\\Program.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\Program.cs",
+              "RelativeToolTip": "ClientWebSiteApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:17:38.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 19,
+              "Title": "Application.csproj",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Application.csproj",
+              "RelativeDocumentMoniker": "Application\\Application.csproj",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Application.csproj",
+              "RelativeToolTip": "Application\\Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-19T11:03:17.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "WebApplicationFactory.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\WebApplicationFactory.cs",
+              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\WebApplicationFactory.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\WebApplicationFactory.cs",
+              "RelativeToolTip": "IntegrationTestEcommerce\\WebApplicationFactory.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwBkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T11:40:16.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductControllerTest.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\ProductControllerTest.cs",
+              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\ProductControllerTest.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\ProductControllerTest.cs",
+              "RelativeToolTip": "IntegrationTestEcommerce\\ProductControllerTest.cs",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAJ0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T11:46:43.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AuthControllerTests.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\AuthControllerTests.cs",
+              "RelativeDocumentMoniker": "IntegrationTestEcommerce\\AuthControllerTests.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\IntegrationTestEcommerce\\AuthControllerTests.cs",
+              "RelativeToolTip": "IntegrationTestEcommerce\\AuthControllerTests.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAiwGEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T12:01:02.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\TokenService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\TokenService\\TokenService.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\TokenService.cs",
+              "RelativeToolTip": "Application\\Services\\TokenService\\TokenService.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAA4wK8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T04:25:48.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\ITokenService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\TokenService\\ITokenService.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\TokenService\\ITokenService.cs",
+              "RelativeToolTip": "Application\\Services\\TokenService\\ITokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T18:10:04.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\IProductService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\ProductServices\\IProductService.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\IProductService.cs",
+              "RelativeToolTip": "Application\\Services\\ProductServices\\IProductService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:19:45.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\UserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserServices\\UserService.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\UserServices\\UserService.cs",
+              "RelativeToolTip": "Application\\Services\\UserServices\\UserService.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAAA4wP8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T10:56:59.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\ProductService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\ProductServices\\ProductService.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\ProductServices\\ProductService.cs",
+              "RelativeToolTip": "Application\\Services\\ProductServices\\ProductService.cs",
+              "ViewState": "AgIAAPwBAAAAAAAAAAA4wBkCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:19:45.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ProductDTO.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\ProductDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\Product\\ProductDTO.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\ProductDTO.cs",
+              "RelativeToolTip": "DTOs\\Product\\ProductDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAMBSwBIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T03:17:49.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "Models\\BaseEntity.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\BaseEntity.cs",
+              "RelativeToolTip": "Models\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAMBSwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T11:59:37.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Contract\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Application\\Contract\\IProductRepository.cs",
+              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Contract\\IProductRepository.cs",
+              "RelativeToolTip": "Application\\Contract\\IProductRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwA8AAACMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T12:52:00.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "Mapster.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Mapper\\Mapster.cs",
               "RelativeDocumentMoniker": "Application\\Mapper\\Mapster.cs",
@@ -423,12 +555,11 @@
               "RelativeToolTip": "Application\\Mapper\\Mapster.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T12:59:57.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T12:59:57.425Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 29,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Contract\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Application\\Contract\\IUserRepository.cs",
@@ -436,12 +567,11 @@
               "RelativeToolTip": "Application\\Contract\\IUserRepository.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAA+wAQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T12:30:23.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T12:30:23.371Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 31,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Infrastructure\\UserRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\UserRepository.cs",
@@ -449,25 +579,11 @@
               "RelativeToolTip": "Infrastructure\\UserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAA0wBQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T12:11:39.222Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T12:11:39.222Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "CreateProductDTO.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\CreateProductDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\Product\\CreateProductDTO.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\CreateProductDTO.cs",
-              "RelativeToolTip": "DTOs\\Product\\CreateProductDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAMBSwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T03:18:52.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 32,
               "Title": "ProductRepositroy.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Infrastructure\\ProductRepositroy.cs",
               "RelativeDocumentMoniker": "Infrastructure\\ProductRepositroy.cs",
@@ -475,12 +591,11 @@
               "RelativeToolTip": "Infrastructure\\ProductRepositroy.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAArwCAAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T12:34:45.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T12:34:45.305Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Context\\DbInitializer.cs",
               "RelativeDocumentMoniker": "Context\\DbInitializer.cs",
@@ -488,12 +603,11 @@
               "RelativeToolTip": "Context\\DbInitializer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAMBSwBMAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T05:27:06.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T05:27:06.387Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 42,
               "Title": "20250918053457_v5.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Context\\Migrations\\20250918053457_v5.cs",
               "RelativeDocumentMoniker": "Context\\Migrations\\20250918053457_v5.cs",
@@ -501,12 +615,11 @@
               "RelativeToolTip": "Context\\Migrations\\20250918053457_v5.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T05:34:58.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T05:34:58.006Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "20250918050722_v2.cs",
               "DocumentMoniker": "D:\\projects\\Ecommerce\\Context\\Migrations\\20250918050722_v2.cs",
               "ToolTip": "D:\\projects\\Ecommerce\\Context\\Migrations\\20250918050722_v2.cs",
@@ -515,20 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "User.cs",
-              "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAkwBAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T15:52:32.039Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 35,
               "Title": "Models.csproj",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Models\\Models.csproj",
               "RelativeDocumentMoniker": "Models\\Models.csproj",
@@ -536,12 +636,11 @@
               "RelativeToolTip": "Models\\Models.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-17T10:49:28.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T10:49:28.729Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 36,
               "Title": "20250918051546_v3.cs",
               "DocumentMoniker": "D:\\projects\\Ecommerce\\Context\\Migrations\\20250918051546_v3.cs",
               "ToolTip": "D:\\projects\\Ecommerce\\Context\\Migrations\\20250918051546_v3.cs",
@@ -550,7 +649,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 37,
               "Title": "20250918050306_v1.cs",
               "DocumentMoniker": "D:\\projects\\Ecommerce\\Context\\Migrations\\20250918050306_v1.cs",
               "ToolTip": "D:\\projects\\Ecommerce\\Context\\Migrations\\20250918050306_v1.cs",
@@ -559,7 +658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 38,
               "Title": "EntityPaginated.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\SharedData\\EntityPaginated.cs",
               "RelativeDocumentMoniker": "DTOs\\SharedData\\EntityPaginated.cs",
@@ -567,12 +666,11 @@
               "RelativeToolTip": "DTOs\\SharedData\\EntityPaginated.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T03:39:55.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T03:39:55.349Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 39,
               "Title": "UpdateProductDTO.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\DTOs\\Product\\UpdateProductDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\Product\\UpdateProductDTO.cs",
@@ -580,12 +678,11 @@
               "RelativeToolTip": "DTOs\\Product\\UpdateProductDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T11:09:06.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T11:09:06.226Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 40,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\AuthService\\IAuthService.cs",
               "RelativeDocumentMoniker": "Application\\Services\\AuthService\\IAuthService.cs",
@@ -593,12 +690,11 @@
               "RelativeToolTip": "Application\\Services\\AuthService\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T18:09:13.201Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T18:09:13.201Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 41,
               "Title": "IFileService.cs",
               "DocumentMoniker": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\Application\\Services\\FileServices\\IFileService.cs",
               "RelativeDocumentMoniker": "Application\\Services\\FileServices\\IFileService.cs",
@@ -606,8 +702,7 @@
               "RelativeToolTip": "Application\\Services\\FileServices\\IFileService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T15:03:57.957Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T15:03:57.957Z"
             }
           ]
         }

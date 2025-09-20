@@ -46,10 +46,10 @@
   </div>
 
   <!-- Error State -->
-  <!-- <div *ngIf="errorMessage && !isLoading" class="error-container">
+  <div *ngIf="errorMessage && !isLoading" class="error-container">
     <p class="error-message">{{ errorMessage }}</p>
     <button (click)="loadProducts()" class="retry-btn">Try Again</button>
-  </div> -->
+  </div>
 
   <!-- Products Grid/List -->
   <main *ngIf="!isLoading && !errorMessage" class="products-main">
@@ -362,6 +362,27 @@
           required
         />
       </div>
+       <div class="form-group">
+              <label>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="showImageUpload"
+                  name="addImage"
+                />
+                Update Product Image
+              </label>
+            </div>
+
+            <div class="form-group" *ngIf="showImageUpload">
+              <label for="productImage">Upload Image</label>
+              <input
+                type="file"
+                id="productImage"
+                class="form-control"
+                (change)="onFileSelected($event)"
+                accept="image/*"
+              />
+            </div>
 
 
 

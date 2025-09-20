@@ -1,6 +1,22 @@
 {
   "Files": [
     {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\15c6886f-53ed-4b24-90d5-b348ed0f5a6d.jpg",
+      "PackagePath": "staticwebassets\\products\\15c6886f-53ed-4b24-90d5-b348ed0f5a6d.jpg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\44f23f98-c6dc-438b-8ccc-78ba2e80d411.jpg",
+      "PackagePath": "staticwebassets\\products\\44f23f98-c6dc-438b-8ccc-78ba2e80d411.jpg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\47295970-0859-445c-8b48-af9de58e03b8.jpg",
+      "PackagePath": "staticwebassets\\products\\47295970-0859-445c-8b48-af9de58e03b8.jpg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\5c4c0897-8042-4a48-81fe-a50222757f5d.jpg",
+      "PackagePath": "staticwebassets\\products\\5c4c0897-8042-4a48-81fe-a50222757f5d.jpg"
+    },
+    {
       "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\5f0e7ec2-f39f-4d54-b0f0-494d62553921.jpg",
       "PackagePath": "staticwebassets\\products\\5f0e7ec2-f39f-4d54-b0f0-494d62553921.jpg"
     },
@@ -9,8 +25,28 @@
       "PackagePath": "staticwebassets\\products\\63218775-0a81-489a-b60f-5c9516ac0ff3.jpg"
     },
     {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\6ecbd488-c24f-4e69-a47c-7c13b2d043f1.jpeg",
+      "PackagePath": "staticwebassets\\products\\6ecbd488-c24f-4e69-a47c-7c13b2d043f1.jpeg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\8a2663f5-c7ec-49a0-8ed2-060474117c0a.jpg",
+      "PackagePath": "staticwebassets\\products\\8a2663f5-c7ec-49a0-8ed2-060474117c0a.jpg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\bd938689-4d66-4ace-9256-264ca820adf2.jpg",
+      "PackagePath": "staticwebassets\\products\\bd938689-4d66-4ace-9256-264ca820adf2.jpg"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\c8d85625-e073-4fdb-a444-12e7552904dc.jpg",
+      "PackagePath": "staticwebassets\\products\\c8d85625-e073-4fdb-a444-12e7552904dc.jpg"
+    },
+    {
       "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\f4904e94-6933-49af-bafd-97f064786317.png",
       "PackagePath": "staticwebassets\\products\\f4904e94-6933-49af-bafd-97f064786317.png"
+    },
+    {
+      "Id": "E:\\NewMark\\EcomerceV1\\BackEnd\\Ecommerce\\ClientWebSiteApi\\wwwroot\\products\\f54c9df6-f15f-472b-81b9-992e944b4098.jpg",
+      "PackagePath": "staticwebassets\\products\\f54c9df6-f15f-472b-81b9-992e944b4098.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ClientWebSiteApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

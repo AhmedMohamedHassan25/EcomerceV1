@@ -16,10 +16,10 @@ export class ProductService {
     private authService: AuthService
   ) {}
 
-  getAllProducts(): Observable<ProductResponse> {
+  getAllProducts(pagenumber:number=1 ,pageSize:number=12): Observable<ProductResponse> {
 
 
-    return this.httpClient.get<ProductResponse>(`${environment.BaseUrl}/Products`).pipe(
+    return this.httpClient.get<ProductResponse>(`${environment.BaseUrl}/Products/${pagenumber}/${pageSize}`).pipe(
       tap(response => {
         console.log(' Products fetched successfully:', response);
       }),

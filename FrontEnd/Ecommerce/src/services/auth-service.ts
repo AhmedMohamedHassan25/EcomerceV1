@@ -25,7 +25,7 @@ export class AuthService {
   public login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
       tap(response => {
-        console.log('Login response:', response);
+
 
         const loginResponse: LoginResponse = {
           token: response.value.accessToken,
@@ -34,7 +34,7 @@ export class AuthService {
 
           user: response.value.user
         };
-                console.log('expiresAt:', response.value.refreshToken);
+
 
 
         this.setAuthData(loginResponse);
@@ -111,8 +111,8 @@ export class AuthService {
     localStorage.setItem('current_user', JSON.stringify(response.user));
     this.currentUserSubject.next(response.user);
 
-    console.log('Token expires at:', expiresAt);
-    console.log('Current time:', new Date());
+
+
   }
 
   private clearAuthData(): void {
@@ -144,7 +144,7 @@ export class AuthService {
 
   private scheduleTokenRefresh(): void {
     if (!isPlatformBrowser(this.platformId)) {
-      console.log("Not in browser platform");
+
       return;
     }
 
@@ -152,7 +152,7 @@ export class AuthService {
 
     const expiresAtString = localStorage.getItem('token_expires_at');
     if (!expiresAtString) {
-      console.log("No expiration time found");
+
       return;
     }
 
@@ -163,16 +163,16 @@ export class AuthService {
 
     const refreshTime = timeUntilExpiry - (5 * 60 * 1000);
 
-    console.log(`Token expires at: ${expiresAt}`);
-    console.log(`Current time: ${now}`);
-    console.log(`Time until expiry: ${timeUntilExpiry}ms`);
-    console.log(`Will refresh in: ${refreshTime}ms`);
+
+
+
+
 
     if (refreshTime > 0 && this.getRefreshToken()) {
       this.tokenRefreshTimer = setTimeout(() => {
-        console.log('Attempting to refresh token...');
+
         this.refreshToken().subscribe({
-          next: () => console.log('Token refreshed successfully'),
+          next: () => {},
           error: (error) => {
             console.error('Token refresh failed:', error);
             this.logout();
@@ -180,7 +180,7 @@ export class AuthService {
         });
       }, refreshTime);
     } else if (timeUntilExpiry <= 0) {
-      console.log('Token already expired, logging out');
+
       this.logout();
     }
   }
@@ -212,9 +212,9 @@ export class AuthService {
  public get currentUserValue(): User | null {
   const value = this.currentUserSubject.value;
   if (value) {
-    console.log("username:", value.userName);
+
   } else {
-    console.log("No current user");
+
   }
   return value;
 }

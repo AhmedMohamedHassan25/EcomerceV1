@@ -12,7 +12,7 @@ import { User } from '../../../models/User';
 @Component({
   selector: 'app-product-list',
   imports: [CommonModule, FormsModule],
-  templateUrl: './product-list.html',
+templateUrl: './product-list.html',
   styleUrls: ['./product-list.css']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
@@ -47,7 +47,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
   totalPages = 1;
   totalProducts = 0;
 
-  // View mode
   viewMode: 'grid' | 'list' = 'grid';
 
   private destroy$ = new Subject<void>();
@@ -74,15 +73,18 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.errorMessage = '';
 
-    this.productService.getAllProducts()
+    // استخدام الـ pagination parameters
+    this.productService.getAllProducts(this.currentPage, this.pageSize)
       .subscribe({
         next: (response) => {
           this.products = response.items || [];
-          this.filteredProducts = [...this.products];
-          this.totalProducts = this.filteredProducts.length;
+          this.paginatedProducts = [...this.products]; // المنتجات اللي جاية من الـ API مباشرة
+          this.totalProducts = response.totalCount || 0; // إجمالي العدد من الـ response
           this.calculatePagination();
-          this.updatePaginatedProducts();
-          console.log('Products loaded:', response);
+
+          // تطبيق الفلتر لو موجود
+          this.applyCurrentFilter();
+
           this.isLoading = false;
         },
         error: (error) => {
@@ -91,80 +93,146 @@ export class ProductListComponent implements OnInit, OnDestroy {
         }
       });
   }
-   public CreateProduct(prd:Product): void {
-  this.isLoading = true;
-  this.errorMessage = '';
 
-
-}
-
-     uploadProductImage(productId: number, file: File): void {
-      this.isLoading = true;
-            console.log(productId);
-            console.log(file);
-            console.log("from Upload");
-
-      this.productService.updateProductImage(productId, file).subscribe({
-        next: () => {
-          console.log("Image uploaded successfully!");
-          this.isLoading = false;
-
-        },
-        error: (err) => {
-          console.error("Image upload failed", err);
-          this.isLoading = false;
-        }
-      });
-    }
-  // Search functionality
-  onSearchChange(): void {
+  private applyCurrentFilter(): void {
     if (!this.searchCategory.trim()) {
       this.filteredProducts = [...this.products];
+      this.paginatedProducts = [...this.products];
     } else {
       const searchTerm = this.searchCategory.toLowerCase().trim();
       this.filteredProducts = this.products.filter(product =>
         product.category?.toLowerCase().includes(searchTerm)
       );
+      this.paginatedProducts = [...this.filteredProducts];
     }
-
-    this.totalProducts = this.filteredProducts.length;
-    this.currentPage = 1;
-    this.calculatePagination();
-    this.updatePaginatedProducts();
   }
 
+  onSearchChange(): void {
+    // إعادة تعيين الصفحة للأولى عند البحث
+    this.currentPage = 1;
 
-  onFileSelected(event: Event): void {
-      const input = event.target as HTMLInputElement;
-      if (input.files && input.files.length > 0) {
-        this.selectedFile = input.files[0];
-        // console.log("Selected file:", this.selectedFile);
-      }
+    if (!this.searchCategory.trim()) {
+      // لو مفيش بحث، جيب البيانات من الـ API
+      this.loadProducts();
+    } else {
+      // لو في بحث، فلتر البيانات المحلية
+      const searchTerm = this.searchCategory.toLowerCase().trim();
+      this.filteredProducts = this.products.filter(product =>
+        product.category?.toLowerCase().includes(searchTerm)
+      );
+      this.paginatedProducts = [...this.filteredProducts];
+
+      // حساب pagination للبيانات المفلترة محلياً
+      this.totalProducts = this.filteredProducts.length;
+      this.calculatePagination();
     }
+  }
+
   clearSearch(): void {
     this.searchCategory = '';
-    this.filteredProducts = [...this.products];
-    this.totalProducts = this.filteredProducts.length;
     this.currentPage = 1;
-    this.calculatePagination();
-    this.updatePaginatedProducts();
+    this.loadProducts(); // إعادة تحميل البيانات من الـ API
+  }
+
+  private calculatePagination(): void {
+    if (this.searchCategory.trim()) {
+      // لو في فلتر، احسب على أساس البيانات المفلترة
+      this.totalPages = Math.ceil(this.filteredProducts.length / this.pageSize);
+    } else {
+      // لو مفيش فلتر، احسب على أساس إجمالي البيانات من الـ server
+      this.totalPages = Math.ceil(this.totalProducts / this.pageSize);
+    }
+
+    if (this.currentPage > this.totalPages && this.totalPages > 0) {
+      this.currentPage = this.totalPages;
+    }
+    if (this.currentPage < 1) {
+      this.currentPage = 1;
+    }
+    console.log('Calculated pagination - Total Pages:', this.totalPages, 'Current Page:', this.currentPage);
+  }
+
+  onPageChange(page: number): void {
+    console.log('Page change requested:', page, 'Current:', this.currentPage, 'Total:', this.totalPages);
+
+    if (page >= 1 && page <= this.totalPages && page !== this.currentPage) {
+      this.currentPage = page;
+
+      if (this.searchCategory.trim()) {
+        // لو في فلتر، اعمل pagination محلي
+        this.updatePaginatedProducts();
+      } else {
+        // لو مفيش فلتر، اجيب صفحة جديدة من الـ server
+        this.loadProducts();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  private updatePaginatedProducts(): void {
+    if (!this.filteredProducts || this.filteredProducts.length === 0) {
+      this.paginatedProducts = [];
+      return;
+    }
+
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+
+    this.paginatedProducts = this.filteredProducts.slice(startIndex, endIndex);
+    console.log('Updated paginated products:', this.paginatedProducts.length, 'Start:', startIndex, 'End:', endIndex);
+  }
+
+  getPaginationArray(): number[] {
+    const pages: number[] = [];
+    const startPage = Math.max(1, this.currentPage - 2);
+    const endPage = Math.min(this.totalPages, this.currentPage + 2);
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+
+    console.log('Pagination array:', pages);
+    return pages;
+  }
+
+  public CreateProduct(prd:Product): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+  }
+
+  uploadProductImage(productId: number, file: File): void {
+    this.isLoading = true;
+
+    this.productService.updateProductImage(productId, file).subscribe({
+      next: () => {
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error("Image upload failed", err);
+        this.isLoading = false;
+      }
+    });
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
   }
 
   openUpdateModal(product: Product): void {
-    console.log(product);
-
-        this.selectedProduct = product as Product;
-
-    console.log(this.selectedProduct.productId );
+    this.selectedProduct = product as Product;
     this.showUpdateModal = true;
     document.body.style.overflow = 'hidden';
   }
- openCreateModal(): void {
-  this.SelectedCreatedProduct = {} as Product;
-  this.showCreateModal = true;
-  document.body.style.overflow = 'hidden';
-}
 
+  openCreateModal(): void {
+    this.SelectedCreatedProduct = {} as Product;
+    this.showCreateModal = true;
+    document.body.style.overflow = 'hidden';
+  }
 
   openDetailsModal(product: Product): void {
     this.selectedProduct = product;
@@ -184,13 +252,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.isUpdating = false;
     document.body.style.overflow = 'auto';
   }
- closeCreateModal(): void {
-  this.showCreateModal = false;
-  this.SelectedCreatedProduct = {} as Product;
-  this.isCreating = false;
-  document.body.style.overflow = 'auto';
-}
 
+  closeCreateModal(): void {
+    this.showCreateModal = false;
+    this.SelectedCreatedProduct = {} as Product;
+    this.isCreating = false;
+    document.body.style.overflow = 'auto';
+  }
 
   closeDetailsModal(): void {
     this.showDetailsModal = false;
@@ -212,7 +280,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
     }, 100);
   }
 
-  // CRUD operations
   updateProduct(): void {
     if (!this.selectedProduct.productId) {
       this.showErrorMessage('Product ID is required for update');
@@ -224,13 +291,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.productService.updateProduct(this.selectedProduct.productId, this.selectedProduct)
       .subscribe({
         next: (updatedProduct) => {
-          console.log("updated product :" +updatedProduct);
-          // console.log(updatedProduct);
-          const index = this.products.findIndex(p => p.productId === updatedProduct.productId);
-          if (index !== -1) {
-            this.products[index] = updatedProduct;
-            this.onSearchChange();
+          if (this.selectedFile) {
+            this.uploadProductImage(this.selectedProduct.productId, this.selectedFile);
+            this.showImageUpload = false;
+            this.selectedFile = null;
           }
+
+          // إعادة تحميل الصفحة الحالية
+          this.loadProducts();
 
           this.showSuccessMessage('Product updated successfully!');
           this.closeUpdateModal();
@@ -242,70 +310,54 @@ export class ProductListComponent implements OnInit, OnDestroy {
       });
   }
 
+  createProduct(): void {
+    this.isCreating = true;
 
+    this.productService.createProduct(this.SelectedCreatedProduct)
+      .subscribe({
+        next: (response: any) => {
+          let createdProduct: any;
 
-createProduct(): void {
-  this.isCreating = true;
+          if (response.value) {
+            createdProduct = response.value;
+          } else if (response.data) {
+            createdProduct = response.data;
+          } else {
+            createdProduct = response;
+          }
 
-  this.productService.createProduct(this.SelectedCreatedProduct)
-    .subscribe({
-      next: (response: any) => {
-        console.log("=== Full API Response ===");
-        console.log(response);
+          const productId = createdProduct.productId ||
+                           createdProduct.id ||
+                           createdProduct.ID ||
+                           createdProduct.ProductId;
 
-        let createdProduct: any;
+          if (!productId) {
+            this.showErrorMessage('Product created but ID is missing');
+            this.isCreating = false;
+            return;
+          }
 
-        if (response.value) {
-          createdProduct = response.value;
-        } else if (response.data) {
-          createdProduct = response.data;
-        } else {
-          createdProduct = response;
-        }
+          if (this.selectedFile) {
+            this.uploadProductImage(productId, this.selectedFile);
+            this.showImageUpload = false;
+            this.selectedFile = null;
+          }
 
-        console.log("=== Extracted Product ===");
-        console.log(createdProduct);
+          // إعادة تحميل الصفحة الحالية
+          this.loadProducts();
 
-        const productId = createdProduct.productId ||
-                         createdProduct.id ||
-                         createdProduct.ID ||
-                         createdProduct.ProductId;
-
-
-
-        if (!productId) {
-          this.showErrorMessage('Product created but ID is missing');
+          this.showSuccessMessage('Product created successfully!');
+          this.closeCreateModal();
           this.isCreating = false;
-          return;
+        },
+        error: (error) => {
+          console.error('=== Product Creation Error ===');
+          console.error(error);
+          this.showErrorMessage('Failed to create product: ' + error.message);
+          this.isCreating = false;
         }
-
-        this.products.push(createdProduct);
-
-        if (this.selectedFile) {
-
-
-          this.uploadProductImage(productId, this.selectedFile);
-          this.showImageUpload = false;
-          this.selectedFile = null;
-        }
-
-        this.onSearchChange();
-
-        this.showSuccessMessage('Product created successfully!');
-        this.closeCreateModal();
-
-        this.isCreating = false;
-      },
-
-      error: (error) => {
-        console.error('=== Product Creation Error ===');
-        console.error(error);
-
-        this.showErrorMessage('Failed to create product: ' + error.message);
-        this.isCreating = false;
-      }
-    });
-}
+      });
+  }
 
   deleteProduct(): void {
     if (!this.productToDelete?.productId) {
@@ -318,9 +370,8 @@ createProduct(): void {
     this.productService.deleteProduct(this.productToDelete.productId)
       .subscribe({
         next: () => {
-          // Remove the product from arrays
-          this.products = this.products.filter(p => p.productId !== this.productToDelete!.productId);
-          this.onSearchChange(); // Refresh filtered products
+          // إعادة تحميل الصفحة الحالية أو الرجوع للصفحة السابقة لو الصفحة الحالية فارغة
+          this.loadProducts();
 
           this.showSuccessMessage('Product deleted successfully!');
           this.closeDeleteModal();
@@ -332,48 +383,10 @@ createProduct(): void {
       });
   }
 
-  private calculatePagination(): void {
-    this.totalPages = Math.ceil(this.totalProducts / this.pageSize);
-  }
-
-  private updatePaginatedProducts(): void {
-    if (!this.filteredProducts || this.filteredProducts.length === 0) {
-      this.paginatedProducts = [];
-      return;
-    }
-
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-
-    this.paginatedProducts = this.filteredProducts.slice(startIndex, endIndex);
-    console.log("updatePaginatedProducts: ", this.paginatedProducts);
-  }
-
-  onPageChange(page: number): void {
-    if (page >= 1 && page <= this.totalPages) {
-      this.currentPage = page;
-      this.updatePaginatedProducts();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }
-
-  getPaginationArray(): number[] {
-    const pages: number[] = [];
-    const startPage = Math.max(1, this.currentPage - 2);
-    const endPage = Math.min(this.totalPages, this.currentPage + 2);
-
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-
-    return pages;
-  }
-
   toggleViewMode(): void {
     this.viewMode = this.viewMode === 'grid' ? 'list' : 'grid';
   }
 
-  // Existing hover functionality (keeping for backward compatibility)
   showProductDetails(product: Product): void {
     this.hoveredProduct = product;
   }
@@ -381,9 +394,6 @@ createProduct(): void {
   hideProductDetails(): void {
     this.hoveredProduct = null;
   }
-
-
-
 
   viewFullDetails(product: Product): void {
     event?.stopPropagation();
@@ -414,12 +424,12 @@ createProduct(): void {
     this.router.navigate(['/login']);
   }
 
-public getcurrentUser(): User | null {
-  return this.authService.currentUserValue;
-}
+  public getcurrentUser(): User | null {
+    return this.authService.currentUserValue;
+  }
+
   getProductImageUrl(product: Product): string {
-    // return `${environment.BaseUrl}/${product.imagePath}`|| '/assets/images/1.png';
-     return  '/assets/images/1.png';
+    return `${environment.baseImageUrl}/${product.imagePath}`;
   }
 
   onImageError(event: any): void {
@@ -427,7 +437,6 @@ public getcurrentUser(): User | null {
   }
 
   private showSuccessMessage(message: string): void {
-    console.log('Success:', message);
     alert(message);
   }
 
@@ -435,7 +444,6 @@ public getcurrentUser(): User | null {
     console.error('Error:', message);
     alert(message);
   }
-
 
   onProductKeyDown(event: KeyboardEvent, product: Product): void {
     if (event.key === 'Enter' || event.key === ' ') {

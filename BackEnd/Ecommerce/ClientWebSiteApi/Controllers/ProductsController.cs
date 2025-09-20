@@ -22,10 +22,11 @@ namespace ClientWebSiteApi.Controllers
                 _productService = productService;
             }
 
-            [HttpGet]
-            public async Task<ActionResult<EntityPaginated<ProductDTO>>> GetProducts()
+            [HttpGet("{pagenumber:int}/{pageSize:int}")]
+            
+            public async Task<ActionResult<EntityPaginated<ProductDTO>>> GetProducts(int pagenumber ,int pageSize  )
             {
-                var products = await _productService.GetAllAsync();
+                var products = await _productService.GetAllAsync(pagenumber, pageSize,false);
                 return Ok(products); 
             }
 
